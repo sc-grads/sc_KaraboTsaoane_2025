@@ -1,1 +1,3 @@
-SELECT * FROM Students ;
+SELECT Email
+FROM Students
+WHERE StudentID = 2548962
