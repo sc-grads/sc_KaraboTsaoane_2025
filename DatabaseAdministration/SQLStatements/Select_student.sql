@@ -1,3 +1,4 @@
-SELECT Email
-FROM Students
-WHERE StudentID = 2548962
+SELECT *
+FROM students
+WHERE LastName LIKE 'M%'
+ORDER BY LastName ASC;
