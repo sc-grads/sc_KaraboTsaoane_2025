@@ -19,4 +19,4 @@ jobs:
 
       - name: Run SQL Script
         run: |
-          sqlcmd -S LAPTOP-OKDI7SQH -d StudentDB -E -i "sc_KaraboTsaoane_2025\DatabaseAdministration\SQLStatements\Select_student.sql"
+          sqlcmd -S LAPTOP-OKDI7SQH -d StudentDB -E -i "DatabaseAdministration\SQLStatements\Select_student.sql"
