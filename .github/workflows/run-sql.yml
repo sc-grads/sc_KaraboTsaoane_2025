@@ -20,7 +20,11 @@ jobs:
           sudo apt-get install -y postgresql
           sudo systemctl start postgresql
           sudo systemctl status postgresql
-
+          
+           - name: Debug PostgreSQL Connection
+             run: |
+               sudo netstat -plnt
+               sudo systemctl status postgresql
 
       - name: Run SQL Script
         run: |
