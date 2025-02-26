@@ -3,35 +3,20 @@ name: Run SQL Script
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
-  pull_request:
-    branches:
-      - main  # Trigger on pull request to the main branch
+      - main
+  workflow_dispatch:
 
 jobs:
-  run_sql_script:
-    runs-on: windows-latest  # SQL Server tools work well on Windows runners
+  execute-sql:
+    runs-on: windows-latest
 
     steps:
-      # Check out the repository
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # Set up SQL Server tools for running SQL scripts
-      - name: Setup SQL Server
-        uses: microsoft/setup-msbuild@v1  # Installs MSBuild (for compatibility with SQL tools)
+      - name: Install SQLCMD
+        run: choco install sqlcmd -y
 
-      # Install SQLCMD tools
-      - name: Install SQL Server Command Line Tools (sqlcmd)
-        run: |
-          choco install sqlcmd
-
-      # Run the SQL script against the StudentDB database
       - name: Run SQL Script
-        env:
-          SQLSERVER_HOST: LAPTOP-OKDI7SQH  # Use your machine's hostname
-          SQLSERVER_USER: LAPTOP-OKDI7SQH\Karabo Tsaoane  # Your SQL Server username
-          SQLSERVER_DB: StudentDB  # Target database
         run: |
-          sqlcmd -S ${{ env.SQLSERVER_HOST }} -E -d ${{ env.SQLSERVER_DB }} -i DataAdministration/SQLStatements/Select_student.sql
-
+          sqlcmd -S LAPTOP-OKDI7SQH -d StudentDB -E -i "C:\sc_KaraboTsaoane_2025\DataAdministration\SQLStatements\Select_student.sql"
