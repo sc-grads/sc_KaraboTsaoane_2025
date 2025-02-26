@@ -1,18 +1,14 @@
-name: Run SQL Script
-'on':
-  push:
-    branches:
-      - main
-  workflow_dispatch: null
 jobs:
-  execute-sql:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+   execute-sql:
+     runs-on: ubuntu-latest
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Install SQLCMD
-        run: choco install sqlcmd -y
-      - name: Run SQL Script
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mssql-tools unixodbc-dev
+      - name: Run SQL script
         run: >
-          sqlcmd -S LAPTOP-OKDI7SQH -d StudentDB -E -i
-          "DatabaseAdministration/SQLStatements/Select_student.sql"
+          sqlcmd -S your_server.database.windows.net -d StudentDB -U
+          your_username -P your_password -i Select_student.sql
