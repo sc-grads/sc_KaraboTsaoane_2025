@@ -19,4 +19,4 @@ jobs:
 
       - name: Run SQL Script
         run: |
-          sqlcmd -S . -d StudentDB -E -i "DatabaseAdministration\SQLStatements\Select_student.sql"
+          sqlcmd -S (local) -d StudentDB -E -i "DatabaseAdministration\SQLStatements\Select_student.sql"
