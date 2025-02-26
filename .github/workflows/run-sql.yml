@@ -14,13 +14,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set Up PostgreSQL
-        uses: harmon758/postgresql-action@v1
-        with:
-          postgresql version: '14'
-          postgresql db: 'testdb'
-          postgresql user: 'postgres'
-          postgresql password: 'password'
+      - name: Install & Start PostgreSQL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql
+          sudo systemctl start postgresql
+          sudo systemctl status postgresql
+
 
       - name: Run SQL Script
         run: |
