@@ -1,31 +1,37 @@
 name: Run SQL Script
 
-on: 
+on:
   push:
     branches:
-      - main  # Runs when code is pushed to the main branch
-  workflow_dispatch: # Allows manual execution
+      - main  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull request to the main branch
 
 jobs:
-  run-sql:
-    runs-on: ubuntu-latest
+  run_sql_script:
+    runs-on: windows-latest  # SQL Server tools work well on Windows runners
 
     steps:
+      # Check out the repository
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Install & Start PostgreSQL
+      # Set up SQL Server tools for running SQL scripts
+      - name: Setup SQL Server
+        uses: microsoft/setup-msbuild@v1  # Installs MSBuild (for compatibility with SQL tools)
+
+      # Install SQLCMD tools
+      - name: Install SQL Server Command Line Tools (sqlcmd)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y postgresql
-          sudo systemctl start postgresql
-          sudo systemctl status postgresql
-          
-           - name: Debug PostgreSQL Connection
-             run: |
-               sudo netstat -plnt
-               sudo systemctl status postgresql
+          choco install sqlcmd
 
+      # Run the SQL script against the StudentDB database
       - name: Run SQL Script
+        env:
+          SQLSERVER_HOST: LAPTOP-OKDI7SQH  # Use your machine's hostname
+          SQLSERVER_USER: LAPTOP-OKDI7SQH\Karabo Tsaoane  # Your SQL Server username
+          SQLSERVER_DB: StudentDB  # Target database
         run: |
-          PGPASSWORD=password psql -U postgres -d testdb -h localhost -f script.sql
+          sqlcmd -S ${{ env.SQLSERVER_HOST }} -E -d ${{ env.SQLSERVER_DB }} -i DataAdministration/SQLStatements/Select_student.sql
+
