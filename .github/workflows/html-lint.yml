@@ -1,0 +1,34 @@
+name: HTML Linting
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js (necessary for running HTMLHint)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Install HTMLHint
+      - name: Install HTMLHint
+        run: |
+          npm install -g htmlhint
+
+      # Lint HTML files
+      - name: Run HTMLHint
+        run: |
+          htmlhint "/*.html" # Adjust the path if your HTML files are in a specific folder, like 'src/*.html'
