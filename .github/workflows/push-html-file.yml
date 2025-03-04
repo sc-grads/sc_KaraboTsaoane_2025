@@ -24,7 +24,7 @@ jobs:
     # Step 3: Add your HTML file (or any changes) to the repository
     - name: Add and commit HTML file
       run: |
-        git add DatabaseAdministration/index.html
+        git add DatabaseAdministration/Tests/index.html
         git commit -m "Add simple HTML page"
       
     # Step 4: Push the changes to GitHub
