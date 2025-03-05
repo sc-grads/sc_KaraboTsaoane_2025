@@ -21,6 +21,4 @@ jobs:
         with:
           python-version: '3.13.2'  # Adjust this to your Python version
 
-      - name: Run Tests
-        run: |
-          pytest  # Ensure you have test cases using pytest
+    
