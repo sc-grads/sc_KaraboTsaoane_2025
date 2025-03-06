@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**/*.html'  # Only trigger when HTML files are pushed
   pull_request:
     branches:
       - main
+    paths:
+      - '**/*.html'  # Only trigger on HTML file changes in pull requests
 
 jobs:
   lint:
@@ -31,4 +35,4 @@ jobs:
       # Lint HTML files
       - name: Run HTMLHint
         run: |
-          htmlhint "/*.html" # Adjust the path if your HTML files are in a specific folder, like 'src/*.html'
+          htmlhint "**/*.html"  # Lint all HTML files, adjust the path if necessary
