@@ -1,0 +1,1 @@
+CREATE LOGIN Auto_user WITH PASSWORD = '@Use25';
