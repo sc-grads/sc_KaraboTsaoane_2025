@@ -1,0 +1,1 @@
+SELECT * FROM [Production].[ProductCostHistory] WHERE EndDate is null
