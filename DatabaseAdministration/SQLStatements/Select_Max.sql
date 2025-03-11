@@ -1,0 +1,1 @@
+SELECT MAX(Rate) FROM [HumanResources].[EmployeePayHistory]
