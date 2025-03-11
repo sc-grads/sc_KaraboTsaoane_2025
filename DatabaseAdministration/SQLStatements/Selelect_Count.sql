@@ -1,0 +1,1 @@
+Select count(*) FROM [Person].[Address] WHERE PostalCode <> '98011' --19588
