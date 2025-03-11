@@ -1,0 +1,1 @@
+SELECT * FROM [HumanResources].[EmployeePayHistory] order by Rate ASC
