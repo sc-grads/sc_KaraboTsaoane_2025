@@ -1,0 +1,2 @@
+SELECT * FROM [AdventureWorks2016].[HumanResources].[EmployeePayHistory]
+WHERE BusinessEntityID IN (SELECT BusinessEntityID FROM [AdventureWorks2016]. [HumanResources].[EmployeePayHistory] WHERE Rate >60)
