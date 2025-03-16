@@ -1,0 +1,2 @@
+CREATE TABLE #myTempTable (ID INT IDENTITY(1,1), Stuffing VARCHAR(100));
+GO
