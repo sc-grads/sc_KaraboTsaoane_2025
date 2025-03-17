@@ -1,0 +1,4 @@
+USE [master]
+GO
+ALTER DATABASE [msdb] MODIFY FILE ( NAME = N'MSDBData', SIZE = 20480KB )
+GO
