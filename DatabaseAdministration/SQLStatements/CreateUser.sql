@@ -1,0 +1,4 @@
+USE [AdventureWorks2016]
+GO
+CREATE USER [LAPTOP-OKDI7SQH\Karabo Tsaoane] WITH DEFAULT_SCHEMA=[dbo]
+GO
