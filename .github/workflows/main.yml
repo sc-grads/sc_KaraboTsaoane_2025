@@ -1,0 +1,19 @@
+name: Send Message to Teams
+
+on:
+  push:
+    branches:
+      - main  # Runs when code is pushed to the main branch
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send message to Microsoft Teams
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+                "text": "Code has been pushed to the main branch in GitHub!"
+              }' \
+          ${{ secrets.https://northerndata.webhook.office.com/webhookb2/df2b3f32-5982-433c-a51b-fc7530d3ef09@174c7352-9c5c-4558-b848-be140b444e7d/IncomingWebhook/c38d207ffde4434788ad72fe6141866d/e086783d-9e86-4341-bcdc-de7ed2c9c4a9/V2r6xc83gSkZ26b-0ILPFcG4BjGnHucWk4Ajq1FJm6Uc01 }}
