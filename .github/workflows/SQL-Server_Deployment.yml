@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install sqlcmd
+      - name: Install Microsoft SQL Server Tools
         run: |
-          choco install -y mssql-tools
+          Invoke-WebRequest -Uri https://aka.ms/go-sqlcmd-windows -OutFile sqlcmd.zip
+          Expand-Archive -Path sqlcmd.zip -DestinationPath "C:\sqlcmd-tools"
+          echo "C:\sqlcmd-tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
 
       - name: Run SQL script
         env:
