@@ -11,34 +11,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install Microsoft SQL Server Tools
-        shell: pwsh
+
+      - name: Download and install sqlcmd
         run: |
-          # Set the SQLCMD Installer URL (EXE)
-          $url = "https://aka.ms/sqlcmdlinux"
-          $installer = "sqlcmd_installer.exe"
-          $outputDir = "C:\sqlcmd-tools"
+          # Download the SQLCMD zip file using WebClient
+          $webClient = New-Object System.Net.WebClient
+          $webClient.DownloadFile("https://aka.ms/go-sqlcmd-windows", "sqlcmd.zip")
+          
+          # Extract the zip file
+          Expand-Archive -Path sqlcmd.zip -DestinationPath "sqlcmd"
 
-          # Download SQLCMD installer
-          Write-Host "Downloading SQLCMD installer..."
-          Invoke-WebRequest -Uri $url -OutFile $installer
-
-          # Install SQLCMD silently
-          Write-Host "Installing SQLCMD..."
-          Start-Process -FilePath $installer -ArgumentList "/quiet", "/install" -Wait
-
-          # Remove the installer after installation
-          Remove-Item -Path $installer -Force
-
-          # Add SQLCMD path to environment variable
-          echo "C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
-
-
+          # Clean up the zip file after extraction
+          Remove-Item sqlcmd.zip
 
       - name: Run SQL script
         env:
-          SQL_SERVER_HOST: https://whole-cobras-start.loca.lt
+          SQL_SERVER_HOST: https://your-url.loca.lt
           SQL_SERVER_USER: AutoUser
           SQL_SERVER_PASSWORD: ${{ secrets.SQL_SERVER_PASSWORD }}
         run: |
-          sqlcmd -S ${SQL_SERVER_HOST} -U ${SQL_SERVER_USER} -P ${SQL_SERVER_PASSWORD} -Q "USE AutoTest; INSERT INTO [user] ([name], [surname], [email]) VALUES ('John', 'Doe', 'john.doe@example.com');"
+          # Add sqlcmd folder to the PATH temporarily
+          $env:PATH = "$env:PATH;$(Build.ArtifactStagingDirectory)\sqlcmd\sqlcmd"
+
+          # Run the SQL script using sqlcmd
+          sqlcmd.exe -S ${SQL_SERVER_HOST} -U ${SQL_SERVER_USER} -P ${SQL_SERVER_PASSWORD} -Q "USE AutoTest; INSERT INTO [user] ([name], [surname], [email]) VALUES ('John', 'Doe', 'john.doe@example.com');"
