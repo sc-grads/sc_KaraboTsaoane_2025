@@ -14,39 +14,24 @@ jobs:
       - name: Install Microsoft SQL Server Tools
         shell: pwsh
         run: |
-          $url = "https://aka.ms/go-sqlcmd-windows"
-          $output = "sqlcmd.zip"
+          # Set the SQLCMD Installer URL (EXE)
+          $url = "https://aka.ms/sqlcmdlinux"
+          $installer = "sqlcmd_installer.exe"
+          $outputDir = "C:\sqlcmd-tools"
 
-          # Download with retry logic
-          $maxRetries = 3
-          $retryDelay = 5
-          $success = $false
+          # Download SQLCMD installer
+          Write-Host "Downloading SQLCMD installer..."
+          Invoke-WebRequest -Uri $url -OutFile $installer
 
-          for ($i = 1; $i -le $maxRetries; $i++) {
-              Write-Host ("Attempt {0}: Downloading SQLCMD..." -f $i)
-              curl.exe -L -o $output $url
+          # Install SQLCMD silently
+          Write-Host "Installing SQLCMD..."
+          Start-Process -FilePath $installer -ArgumentList "/quiet", "/install" -Wait
 
-              # Check if file exists
-              if (Test-Path $output -PathType Leaf) {
-                  try {
-                      Expand-Archive -Path $output -DestinationPath "C:\sqlcmd-tools" -ErrorAction Stop
-                      $success = $true
-                      break
-                  } catch {
-                      Write-Host "Downloaded file is invalid. Retrying in $retryDelay seconds..."
-                      Remove-Item -Path $output -Force -ErrorAction SilentlyContinue
-                      Start-Sleep -Seconds $retryDelay
-                  }
-              }
-          }
+          # Remove the installer after installation
+          Remove-Item -Path $installer -Force
 
-          if (-not $success) {
-              throw "Failed to download a valid sqlcmd.zip file after multiple attempts."
-          }
-
-          echo "C:\sqlcmd-tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
-
-
+          # Add SQLCMD path to environment variable
+          echo "C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
 
 
 
