@@ -7,17 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install sqlcmd
         run: |
-          sudo apt-get update
-          sudo apt-get install -y mssql-tools
+          choco install -y mssql-tools
 
-      - name: Insert data into AutoTest table
+      - name: Run SQL script
         env:
           SQL_SERVER_HOST: https://whole-cobras-start.loca.lt
           SQL_SERVER_USER: AutoUser
