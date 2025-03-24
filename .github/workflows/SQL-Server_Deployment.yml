@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install Microsoft SQL Server Tools
-        shell: powershell
+        shell: pwsh
         run: |
           $url = "https://aka.ms/go-sqlcmd-windows"
           $output = "sqlcmd.zip"
@@ -21,11 +21,12 @@ jobs:
           $maxRetries = 3
           $retryDelay = 5
           $success = $false
-          for ($i=1; $i -le $maxRetries; $i++) {
-              Write-Host "Attempt $i: Downloading SQLCMD..."
+
+          for ($i = 1; $i -le $maxRetries; $i++) {
+              Write-Host ("Attempt {0}: Downloading SQLCMD..." -f $i)
               curl.exe -L -o $output $url
-              
-              # Check if the file is a valid ZIP
+
+              # Check if file exists
               if (Test-Path $output -PathType Leaf) {
                   try {
                       Expand-Archive -Path $output -DestinationPath "C:\sqlcmd-tools" -ErrorAction Stop
@@ -33,6 +34,7 @@ jobs:
                       break
                   } catch {
                       Write-Host "Downloaded file is invalid. Retrying in $retryDelay seconds..."
+                      Remove-Item -Path $output -Force -ErrorAction SilentlyContinue
                       Start-Sleep -Seconds $retryDelay
                   }
               }
@@ -43,6 +45,7 @@ jobs:
           }
 
           echo "C:\sqlcmd-tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
 
 
 
