@@ -1,0 +1,26 @@
+name: SQL Server Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install sqlcmd
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mssql-tools
+
+      - name: Insert data into AutoTest table
+        env:
+          SQL_SERVER_HOST: https://whole-cobras-start.loca.lt
+          SQL_SERVER_USER: AutoUser
+          SQL_SERVER_PASSWORD: ${{ secrets.SQL_SERVER_PASSWORD }}
+        run: |
+          sqlcmd -S ${SQL_SERVER_HOST} -U ${SQL_SERVER_USER} -P ${SQL_SERVER_PASSWORD} -Q "USE AutoTest; INSERT INTO [user] ([name], [surname], [email]) VALUES ('John', 'Doe', 'john.doe@example.com');"
