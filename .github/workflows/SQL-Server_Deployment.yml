@@ -14,9 +14,36 @@ jobs:
       - name: Install Microsoft SQL Server Tools
         shell: powershell
         run: |
-          curl.exe -L -o sqlcmd.zip https://aka.ms/go-sqlcmd-windows
-          Expand-Archive -Path sqlcmd.zip -DestinationPath "C:\sqlcmd-tools"
+          $url = "https://aka.ms/go-sqlcmd-windows"
+          $output = "sqlcmd.zip"
+
+          # Download with retry logic
+          $maxRetries = 3
+          $retryDelay = 5
+          $success = $false
+          for ($i=1; $i -le $maxRetries; $i++) {
+              Write-Host "Attempt $i: Downloading SQLCMD..."
+              curl.exe -L -o $output $url
+              
+              # Check if the file is a valid ZIP
+              if (Test-Path $output -PathType Leaf) {
+                  try {
+                      Expand-Archive -Path $output -DestinationPath "C:\sqlcmd-tools" -ErrorAction Stop
+                      $success = $true
+                      break
+                  } catch {
+                      Write-Host "Downloaded file is invalid. Retrying in $retryDelay seconds..."
+                      Start-Sleep -Seconds $retryDelay
+                  }
+              }
+          }
+
+          if (-not $success) {
+              throw "Failed to download a valid sqlcmd.zip file after multiple attempts."
+          }
+
           echo "C:\sqlcmd-tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
 
 
 
