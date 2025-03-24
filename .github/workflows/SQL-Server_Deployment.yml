@@ -12,10 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install Microsoft SQL Server Tools
+        shell: powershell
         run: |
-          Invoke-WebRequest -Uri https://aka.ms/go-sqlcmd-windows -OutFile sqlcmd.zip
+          curl.exe -L -o sqlcmd.zip https://aka.ms/go-sqlcmd-windows
           Expand-Archive -Path sqlcmd.zip -DestinationPath "C:\sqlcmd-tools"
           echo "C:\sqlcmd-tools" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
 
 
       - name: Run SQL script
