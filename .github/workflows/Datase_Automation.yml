@@ -13,14 +13,47 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up SQL Server
+      - name: Install SQL Server
+        run: |
+          # Import the Microsoft repository GPG keys
+          sudo apt-get update
+          sudo apt-get install -y curl gnupg
+          curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+          
+          # Add the SQL Server Ubuntu repository
+          curl -fsSL https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list | sudo tee /etc/apt/sources.list.d/mssql-server.list
+          
+          # Update package list and install SQL Server
+          sudo apt-get update
+          sudo apt-get install -y mssql-server
+          
+          # Configure SQL Server (non-interactive setup with a default password)
+          sudo ACCEPT_EULA=Y MSSQL_SA_PASSWORD=${{ secrets.DB_PASSWORD }} MSSQL_PID=Express /opt/mssql/bin/mssql-conf setup
+          
+          # Verify SQL Server is installed
+          /opt/mssql/bin/sqlservr --version
+
+      - name: Install SQL Server Tools (sqlcmd)
+        run: |
+          # Add the tools repository and install sqlcmd
+          curl -fsSL https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools
+          # Add sqlcmd to PATH
+          echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+          source ~/.bashrc
+
+      - name: Start SQL Server
         run: |
           sudo systemctl start mssql-server
           echo "Starting SQL Server..."
-      
+          # Wait for SQL Server to be ready (give it a few seconds)
+          sleep 10
+          sudo systemctl status mssql-server --no-pager
+
       - name: Create Database, Table, and Insert Data
         run: |
-          sqlcmd -S localhost -U SA -P ${{ secrets.DB_PASSWORD }} -Q "
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P ${{ secrets.DB_PASSWORD }} -Q "
           IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTest')
           CREATE DATABASE AutoTest;
 
