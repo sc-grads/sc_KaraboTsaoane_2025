@@ -1,0 +1,65 @@
+name: Build AutoTest Database
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-database:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout code (still needed for Dockerfile)
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Build and run Docker container with inline SQL
+      - name: Build and Run Database Container
+        run: |
+          # Create temporary Dockerfile
+          cat > Dockerfile << 'EOF'
+          FROM alpine:latest
+          RUN apk add --no-cache sqlite
+          WORKDIR /db
+          CMD ["sqlite3", "AutoTest.db", \
+            "CREATE TABLE IF NOT EXISTS \"user\" ( \
+              Name TEXT NOT NULL, \
+              Surname TEXT NOT NULL, \
+              Email TEXT NOT NULL UNIQUE \
+            ); \
+            INSERT OR IGNORE INTO \"user\" (Name, Surname, Email) \
+            VALUES \
+              ('John', 'Doe', 'john.doe@example.com'), \
+              ('Jane', 'Smith', 'jane.smith@example.com'), \
+              ('Bob', 'Johnson', 'bob.johnson@example.com');"]
+          EOF
+
+          # Build the Docker image
+          docker build -t autotestsqlite:latest .
+          
+          # Run the container to create the database
+          docker run --name db-container autotestsqlite:latest
+          
+          # Copy the database file from container to host
+          docker cp db-container:/db/AutoTest.db ./AutoTest.db
+
+      # Verify database contents
+      - name: Verify Database
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sqlite3
+          sqlite3 AutoTest.db "SELECT * FROM user;"
+
+      # Store database as artifact
+      - name: Upload Database Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AutoTest-database
+          path: AutoTest.db
