@@ -1,0 +1,50 @@
+name: Database Automation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  setup-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up SQL Server
+        run: |
+          sudo systemctl start mssql-server
+          echo "Starting SQL Server..."
+      
+      - name: Create Database, Table, and Insert Data
+        run: |
+          sqlcmd -S localhost -U SA -P ${{ secrets.DB_PASSWORD }} -Q "
+          IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTest')
+          CREATE DATABASE AutoTest;
+
+          USE AutoTest;
+
+          IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'user')
+          CREATE TABLE user (
+            Name NVARCHAR(50),
+            Surname NVARCHAR(50),
+            Email NVARCHAR(100) UNIQUE
+          );
+
+          IF NOT EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertUser')
+          EXEC('
+            CREATE PROCEDURE InsertUser
+            @Name NVARCHAR(50),
+            @Surname NVARCHAR(50),
+            @Email NVARCHAR(100)
+            AS
+            BEGIN
+              INSERT INTO user (Name, Surname, Email) VALUES (@Name, @Surname, @Email);
+            END
+          ');
+
+          EXEC InsertUser 'John', 'Doe', 'john.doe@example.com';
+          EXEC InsertUser 'Jane', 'Smith', 'jane.smith@example.com';
+          "
