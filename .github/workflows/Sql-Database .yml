@@ -1,0 +1,72 @@
+name: SQL Database Automation
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  automate-db:
+    runs-on: windows-latest  # Using Windows for native SQL Server tools
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Install SQL tools
+      run: |
+        choco install sqlserver-odbcdriver -y
+        
+    - name: Create database objects
+      env:
+        SQL_SERVER: ${{ secrets.SQL_SERVER }}
+        SQL_USERNAME: ${{ secrets.SQL_USERNAME }}
+        SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+      run: |
+        $sqlQuery = @"
+        USE [AutoTest]
+        GO
+        
+        -- Verify table exists or create
+        IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'user')
+        BEGIN
+            CREATE TABLE [user] (
+                Name NVARCHAR(50),
+                Surname NVARCHAR(50),
+                Email NVARCHAR(100)
+            )
+            PRINT 'User table created'
+        END
+        ELSE
+        BEGIN
+            PRINT 'User table already exists'
+        END
+        
+        -- Create or alter stored procedure
+        IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_InsertUser')
+        BEGIN
+            DROP PROCEDURE sp_InsertUser
+        END
+        GO
+        
+        CREATE PROCEDURE sp_InsertUser
+            @Name NVARCHAR(50),
+            @Surname NVARCHAR(50),
+            @Email NVARCHAR(100)
+        AS
+        BEGIN
+            INSERT INTO [user] (Name, Surname, Email)
+            VALUES (@Name, @Surname, @Email)
+        END
+        GO
+        
+        -- Execute stored procedure
+        EXEC sp_InsertUser 'GitHub', 'Action', 'action@github.com'
+        GO
+        
+        SELECT * FROM [user]
+        GO
+        "@
+        
+        $queryOutput = sqlcmd -S "$env:SQL_SERVER" -d "AutoTest" -U "$env:SQL_USERNAME" -P "$env:SQL_PASSWORD" -Q "$sqlQuery"
+        Write-Host $queryOutput
