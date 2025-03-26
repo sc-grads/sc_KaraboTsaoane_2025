@@ -58,7 +58,7 @@ jobs:
     needs: build-db
     environment:
       name: production
-      url: rnyeu-197-185-141-239.a.free.pinggy.link,40693
+      url: "rnyeu-197-185-141-239.a.free.pinggy.link,40693"
     steps:
       - name: Manual Approval Required
         run: echo "Waiting for approval before deploying to production"
