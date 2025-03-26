@@ -36,7 +36,7 @@ jobs:
 
       # Optional: Upload the database as an artifact
       - name: Upload database artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AutoTest.db
           path: AutoTest.db
