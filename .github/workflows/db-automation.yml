@@ -24,11 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Removed: pip install sqlite3 (not needed)
 
       - name: Create and populate database
         run: |
-          python create_db.py
+          python sc_KaraboTsaoane_2025/Data/Python/create_db.py
 
       - name: Upload database artifact
         uses: actions/upload-artifact@v4
