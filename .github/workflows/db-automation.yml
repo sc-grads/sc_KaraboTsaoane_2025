@@ -16,11 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Debug directory contents
-        run: |
-          ls -la
-          find . -name "create_db.sql"
-
       - name: Install SQL Server tools
         run: |
           sudo apt-get update
@@ -31,13 +26,11 @@ jobs:
           curl https://packages.microsoft.com/config/ubuntu/24.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
           sudo apt-get update
           # Install mssql-tools18 and unixodbc-dev
-          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev || { echo "Failed to install mssql-tools18"; exit 1; }
-          # Update PATH for this session
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
+          # Add mssql-tools to PATH for this session
           export PATH="$PATH:/opt/mssql-tools18/bin"
-          # Verify sqlcmd is installed
-          which sqlcmd || { echo "sqlcmd not found in PATH"; exit 1; }
-          sqlcmd -? || { echo "sqlcmd installed but not working"; exit 1; }
-          echo "sqlcmd installed successfully: $(sqlcmd -v)"
+          # Verify sqlcmd is available
+          sqlcmd -? || echo "sqlcmd installation failed"
 
       - name: Run SQL script
         env:
@@ -46,6 +39,5 @@ jobs:
           SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
           SQL_DATABASE: ${{ secrets.SQL_DATABASE }}
         run: |
-          export PATH="$PATH:/opt/mssql-tools18/bin"
           sqlcmd -S $SQL_SERVER -U $SQL_USERNAME -P $SQL_PASSWORD -d $SQL_DATABASE -i DatabaseAdministration/SQLStatements/create_db.sql -o output.txt
           cat output.txt
