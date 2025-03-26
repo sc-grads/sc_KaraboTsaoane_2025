@@ -1,6 +1,5 @@
 import sqlite3
 
-# Connect to or create the database
 conn = sqlite3.connect("AutoTest.db")
 cursor = conn.cursor()
 
