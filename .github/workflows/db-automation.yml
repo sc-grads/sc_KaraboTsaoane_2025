@@ -40,7 +40,7 @@ jobs:
           SQL_SERVER: ${{ secrets.SQL_SERVER }}
           SQL_USERNAME: ${{ secrets.SQL_USERNAME }}
           SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-          SQL_DATABASE: ${{ secrets.SQL_DATABASE }}
+         
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -U $SQL_USERNAME -P $SQL_PASSWORD -d $SQL_DATABASE -i DatabaseAdministration/SQLStatements/create_db.sql -o output.txt
+          /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -U $SQL_USERNAME -P $SQL_PASSWORD  -i DatabaseAdministration/SQLStatements/create_db.sql -o output.txt
           cat output.txt
