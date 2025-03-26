@@ -3,7 +3,7 @@ name: CI/CD SQL Deployment with Manual Approval
 on:
   push:
     branches: [ main ]
-    paths: [ 'DatabaseAdministration\SQLStatements/' ]  # Triggers only if files in Database folder change
+    paths: [ 'DatabaseAdministration\SQLStatements/**' ]  # Triggers only if files in Database folder change
 
 jobs:
   development:
