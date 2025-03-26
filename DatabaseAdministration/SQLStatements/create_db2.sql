@@ -1,4 +1,4 @@
--- 1. Create database if it doesn't exist
+
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'AutoDBKaraboTsaoane')
 BEGIN
     CREATE DATABASE AutoDBKaraboTsaoane;
