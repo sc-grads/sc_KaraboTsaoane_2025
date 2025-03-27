@@ -6,7 +6,7 @@ END
 GO
 
 -- 2. Switch to the new database
-USE AutoDBFirstName;
+USE AutoDBKaraboTsaoane;
 GO
 
 -- 3. Drop stored procedure if it exists
