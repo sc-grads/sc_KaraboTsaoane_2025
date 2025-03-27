@@ -30,7 +30,7 @@ jobs:
           SQL_USER: ${{ secrets.SQL_USER }}
           SQL_PASS: ${{ secrets.SQL_PASSWORD }}
         run: |
-         sqlcmd -S "rnvmt-102-66-182-14.a.free.pinggy.link,45291" -U "User" -P "@K12345" -i DatabaseAdministration/SQLStatements/create_db2.sql
+         sqlcmd -S "rnljy-102-66-182-14.a.free.pinggy.link:41519" -U "User" -P "@K12345" -i DatabaseAdministration/SQLStatements/create_db2.sql
 
   production:
     name: Deploy to Production (requires approval)
