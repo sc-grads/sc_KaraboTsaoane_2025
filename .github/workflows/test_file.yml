@@ -3,7 +3,7 @@ name: SQL Deployment with Manual Approval
 on:
   push:
     branches: [ main ]
-    paths: [ 'DatabaseAdministration/SQLStatements/create_db.sql/**' ]  # Triggers only if files in Database folder change
+    paths: [ 'DatabaseAdministration/SQLStatements/create_db.sql' ]  # Triggers only if files in Database folder change
 
 jobs:
   development:
