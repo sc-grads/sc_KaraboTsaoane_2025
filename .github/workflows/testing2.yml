@@ -28,7 +28,7 @@ jobs:
         env:
           SQL_SERVER: ${{ secrets.SQL_SERVER }}
           SQL_USER: ${{ secrets.SQL_USER }}
-          SQL_PASS: ${{ secrets.SQL_PASSWORD }}
+          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
         run: |
           sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db2.sql 
 
