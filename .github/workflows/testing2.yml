@@ -30,7 +30,8 @@ jobs:
           SQL_USER: ${{ secrets.SQL_USER }}
           SQL_PASS: ${{ secrets.SQL_PASSWORD }}
         run: |
-          sqlcmd -S "$SQL_SERVER" -E -i DatabaseAdministration/SQLStatements/create_db2.sql
+         sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db2.sql
+
   production:
     name: Deploy to Production (requires approval)
     needs: development
