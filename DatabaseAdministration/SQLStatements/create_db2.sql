@@ -27,7 +27,7 @@ BEGIN
             Email NVARCHAR(100)
         );
 
-        -- Insert sample rows
+       
         INSERT INTO [user] (Name, Surname, Email)
         VALUES 
         ('John', 'Doe', 'john@example.com'),
