@@ -3,7 +3,7 @@ name: SQL Deployment with Manual Approval
 on:
   push:
     branches: [ main ]
-    paths: [ 'DatabaseAdministration/SQLStatements/create_db.sql' ]
+    paths: [ 'DatabaseAdministration/SQLStatements/create_db2.sql' ]
   workflow_dispatch:  # Allows manual triggering change
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
           SQL_USER: ${{ secrets.SQL_USER }}
           SQL_PASS: ${{ secrets.SQL_PASSWORD }}
         run: |
-          sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db.sql 
+          sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db2.sql 
   production:
     name: Deploy to Production (requires approval)
     needs: development
@@ -58,4 +58,4 @@ jobs:
           PROD_SQL_USER: ${{ secrets.PROD_SQL_USER }}
           PROD_SQL_PASS: ${{ secrets.PROD_SQL_PASS }}
         run: |
-          sqlcmd -S "$PROD_SQL_SERVER" -U "$PROD_SQL_USER" -P "$PROD_SQL_PASS" -i DatabaseAdministration/SQLStatements/create_db.sql 
+          sqlcmd -S "$PROD_SQL_SERVER" -U "$PROD_SQL_USER" -P "$PROD_SQL_PASS" -i DatabaseAdministration/SQLStatements/create_db2.sql 
