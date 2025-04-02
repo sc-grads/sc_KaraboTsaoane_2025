@@ -1,4 +1,4 @@
-name: CI/CD SQL Deployment with Manual Approval
+name: SQL Deployment with Manual Approval
 
 on:
   push:
