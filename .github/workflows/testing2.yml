@@ -2,23 +2,38 @@ name: SQL Deployment with Manual Approval
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'DatabaseAdministration/SQLStatements/create_db2.sql'
-  workflow_dispatch:
+    branches: [ main ]
+    paths: [ 'DatabaseAdministration/SQLStatements/create_db2.sql' ]
 
 jobs:
-  deploy:
-    strategy:
-      matrix:
-        environment: [development, production]
-
-    uses: ./.github/workflows/sql-deployment-template.yml
+  development:
+    name: Deploy to Development
+    uses: ./.github/workflows/sql-template.yml
     with:
-      environment_name: ${{ matrix.environment }}
-      SQL_SERVER: ${{ secrets.SQL_SERVER }}
-      SQL_USER: ${{ secrets.SQL_USER }}
-      SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-      script_path: DatabaseAdministration/SQLStatements/create_db2.sql
-    secrets: inherit
+      sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
+    secrets:
+      sql_server: ${{ secrets.SQL_SERVER }}
+      sql_user: ${{ secrets.SQL_USER }}
+      sql_pass: ${{ secrets.SQL_PASS }}
+
+  approve-production:
+    name: Wait for Manual Approval
+    needs: development
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: 'https://rnimg-102-66-182-14.a.free.pinggy.link:44225'
+    steps:
+      - name: Awaiting approval to deploy to production
+        run: echo "✅ Approved! Proceeding to production deployment."
+
+  run-production-deploy:
+    name: Deploy to Production via Template
+    needs: approve-production
+    uses: ./.github/workflows/sql-template.yml
+    with:
+      sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
+    secrets:
+      sql_server: ${{ secrets.PROD_SQL_SERVER }}
+      sql_user: ${{ secrets.PROD_SQL_USER }}
+      sql_pass: ${{ secrets.PROD_SQL_PASS }}
