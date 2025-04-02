@@ -1,39 +1,58 @@
-name: SQL Deployment with Manual Approval
+name: SQL Deployment Workflow
 
 on:
   push:
-    branches: [ main ]
-    paths: [ 'DatabaseAdministration/SQLStatements/create_db2.sql' ]
+    branches:
+      - main
+    paths:
+      - 'DatabaseAdministration/SQLStatements/create_db2.sql'
+  workflow_dispatch:
 
 jobs:
-  development:
-    name: Deploy to Development
-    uses: ./.github/workflows/sql-deployment-template.yml
-    with:
-      sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
-    secrets:
-      sql_server: ${{ secrets.SQL_SERVER }}
-      sql_user: ${{ secrets.SQL_USER }}
-      sql_pass: ${{ secrets.SQL_PASS }}
+  prepare:
+    name: Prepare Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-  approve-production:
-    name: Wait for Manual Approval
-    needs: development
+  deploy_to_dev:
+    name: Deploy to Development
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy SQL to Development
+        uses: ./.github/workflows/sql-deployment-template.yml
+        with:
+          environment_name: development
+          sql_server: "${{ secrets.SQL_SERVER }}"
+          sql_user: "${{ secrets.SQL_USER }}"
+          sql_password: "${{ secrets.SQL_PASSWORD }}"
+          script_path: "DatabaseAdministration/SQLStatements/create_db2.sql"
+
+  request_production_approval:
+    name: Request Production Approval
+    needs: deploy_to_dev
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: 'https://rnimg-102-66-182-14.a.free.pinggy.link:44225'
     steps:
-      - name: Awaiting approval to deploy to production
-        run: echo "✅ Approved! Proceeding to production deployment."
+      - name: Await Manual Approval
+        run: echo "Production deployment requires approval."
 
-  run-production-deploy:
-    name: Deploy to Production via Template
-    needs: approve-production
-    uses: ./.github/workflows/sql-deployment-template.yml
-    with:
-      sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
-    secrets:
-      sql_server: ${{ secrets.PROD_SQL_SERVER }}
-      sql_user: ${{ secrets.PROD_SQL_USER }}
-      sql_pass: ${{ secrets.PROD_SQL_PASS }}
+  deploy_to_prod:
+    name: Deploy to Production
+    needs: request_production_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy SQL to Production
+        uses: ./.github/workflows/sql-deployment-template.yml
+        with:
+          environment_name: production
+          sql_server: "${{ secrets.PROD_SQL_SERVER }}"
+          sql_user: "${{ secrets.PROD_SQL_USER }}"
+          sql_password: "${{ secrets.PROD_SQL_PASS }}"
+          script_path: "DatabaseAdministration/SQLStatements/create_db2.sql"
+    environment:
+      name: production
+      url: "https://your-production-server-url"
