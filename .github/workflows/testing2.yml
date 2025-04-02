@@ -36,4 +36,4 @@ jobs:
     secrets:
       PROD_SQL_SERVER: ${{ secrets.PROD_SQL_SERVER }}
       PROD_SQL_USER: ${{ secrets.PROD_SQL_USER }}
-      PROD_SQL_PASSWORD: ${{ secrets.PROD_SQL_PASSWORD }}
+      PROD_SQL_PASS: ${{ secrets.PROD_SQL_PASS }}
