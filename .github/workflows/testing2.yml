@@ -1,62 +1,31 @@
 name: SQL Deployment with Manual Approval
-
-on:
+'on':
   push:
-    branches: [ main ]
-    paths: [ 'DatabaseAdministration/SQLStatements/create_db2.sql' ]
-  workflow_dispatch:  # Allows manual triggering change
-
+    branches:
+      - main
+    paths:
+      - DatabaseAdministration/SQLStatements/create_db2.sql
+  workflow_dispatch: null
 jobs:
   development:
     name: Deploy to Development (Local)
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install sqlcmd on Ubuntu
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl gnupg
-          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
-          echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
-      - name: Run SQL script on local (development) server
-        env:
-          SQL_SERVER: ${{ secrets.SQL_SERVER }}
-          SQL_USER: ${{ secrets.SQL_USER }}
-          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-        run: |
-          sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db2.sql 
-
+    uses: ./.github/workflows/sql-deployment-template.yml
+    with:
+      environment_name: development
+      sql_server: '${{ secrets.SQL_SERVER }}'
+      sql_user: '${{ secrets.SQL_USER }}'
+      sql_password: '${{ secrets.SQL_PASSWORD }}'
+      script_path: DatabaseAdministration/SQLStatements/create_db2.sql
   production:
     name: Deploy to Production (requires approval)
     needs: development
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/sql-deployment-template.yml
+    with:
+      environment_name: production
+      sql_server: '${{ secrets.PROD_SQL_SERVER }}'
+      sql_user: '${{ secrets.PROD_SQL_USER }}'
+      sql_password: '${{ secrets.PROD_SQL_PASS }}'
+      script_path: DatabaseAdministration/SQLStatements/create_db2.sql
     environment:
-      name: production  # This triggers approval request for the "production" environment
-      url: https://your-production-server-url  # Optional
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install sqlcmd on Ubuntu
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl gnupg
-          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
-          echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
-      - name: Run SQL script on production server
-        env:
-          PROD_SQL_SERVER: ${{ secrets.PROD_SQL_SERVER }}
-          PROD_SQL_USER: ${{ secrets.PROD_SQL_USER }}
-          PROD_SQL_PASS: ${{ secrets.PROD_SQL_PASS }}
-        run: |
-          sqlcmd -S "$PROD_SQL_SERVER" -U "$PROD_SQL_USER" -P "$PROD_SQL_PASS" -i DatabaseAdministration/SQLStatements/create_db2.sql 
+      name: production
+      url: 'https://your-production-server-url'
