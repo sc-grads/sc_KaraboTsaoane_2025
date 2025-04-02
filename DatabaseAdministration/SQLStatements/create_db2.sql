@@ -42,7 +42,7 @@ BEGIN CATCH
 END CATCH
 GO
 
--- 4. Create stored procedure that creates the table and inserts data
+--- 4. Create stored procedure that creates the table and inserts data
 BEGIN TRY
     CREATE PROCEDURE CreateUserTable
     AS
