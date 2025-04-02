@@ -12,9 +12,9 @@ jobs:
     with:
       sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
-      sql_server: ${{ secrets.SQL_SERVER }}
-      sql_user: ${{ secrets.SQL_USER }}
-      sql_pass: ${{ secrets.SQL_PASS }}
+      SQL_SERVER: ${{ secrets.SQL_SERVER }}
+      SQL_USER: ${{ secrets.SQL_USER }}
+      SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
 
   approve-production:
     name: Wait for Manual Approval
@@ -34,6 +34,6 @@ jobs:
     with:
       sql_file:  DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
-      sql_server: ${{ secrets.PROD_SQL_SERVER }}
-      sql_user: ${{ secrets.PROD_SQL_USER }}
-      sql_pass: ${{ secrets.PROD_SQL_PASS }}
+      PROD_SQL_SERVER: ${{ secrets.PROD_SQL_SERVER }}
+      PROD_SQL_USER: ${{ secrets.PROD_SQL_USER }}
+      PROD_SQL_PASSWORD: ${{ secrets.PROD_SQL_PASSWORD }}
