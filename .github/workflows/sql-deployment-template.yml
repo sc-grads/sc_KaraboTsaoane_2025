@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "🚀 Running SQL: ${{ inputs.sql_file }}"
           set +e
-          sqlcmd -S "${{ secrets.sql_server }}" -U "${{ secrets.sql_user }}" -P "${{ secrets.sql_pass }}" -i "${{ inputs.sql_file }}"
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i "${{ inputs.sql_file }}"
           status=$?
           if [ $status -ne 0 ]; then
             echo "❌ SQL script failed with exit code $status"
