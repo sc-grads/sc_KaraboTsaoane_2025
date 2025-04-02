@@ -28,7 +28,7 @@ BEGIN CATCH
 END CATCH
 GO
 
--- 3. Drop stored procedure if it exists
+--- 3. Drop stored procedure if it exists
 BEGIN TRY
     IF OBJECT_ID('CreateUserTable', 'P') IS NOT NULL
     BEGIN
