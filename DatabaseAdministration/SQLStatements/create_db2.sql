@@ -1,5 +1,5 @@
 
---- 1. Check if database exists, create it if not
+-- 1. Check if database exists, create it if not
 BEGIN TRY
     IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'AutoDB_KaraboTsaoane')
     BEGIN
