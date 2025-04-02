@@ -8,7 +8,7 @@ on:
 jobs:
   development:
     name: Deploy to Development
-    uses: ./.github/workflows/sql-template.yml
+    uses: ./.github/workflows/sql-deployment-template.yml
     with:
       sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
@@ -30,7 +30,7 @@ jobs:
   run-production-deploy:
     name: Deploy to Production via Template
     needs: approve-production
-    uses: ./.github/workflows/sql-template.yml
+    uses: ./.github/workflows/sql-deployment-template.yml
     with:
       sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
