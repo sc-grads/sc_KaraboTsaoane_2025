@@ -10,6 +10,7 @@ jobs:
     name: Deploy to Development
     uses: ./.github/workflows/sql-deployment-template.yml
     with:
+      environment_name: "development"
       sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
       sql_server: ${{ secrets.SQL_SERVER }}
@@ -32,6 +33,7 @@ jobs:
     needs: approve-production
     uses: ./.github/workflows/sql-deployment-template.yml
     with:
+      environment_name: "Production"
       sql_file:  DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
       sql_server: ${{ secrets.PROD_SQL_SERVER }}
