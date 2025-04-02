@@ -1,0 +1,49 @@
+# .github/workflows/sql-deployment-template.yml
+name: SQL Deployment Template
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      sql_server:
+        required: true
+        type: string
+      sql_user:
+        required: true
+        type: string
+      sql_password:
+        required: true
+        type: string
+      script_path:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    name: Deploy SQL Script
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment_name }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install sqlcmd on Ubuntu
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl gnupg
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
+          echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
+
+      - name: Run SQL script
+        env:
+          SQL_SERVER: ${{ inputs.sql_server }}
+          SQL_USER: ${{ inputs.sql_user }}
+          SQL_PASSWORD: ${{ inputs.sql_password }}
+        run: |
+          sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i ${{ inputs.script_path }}
