@@ -1,4 +1,4 @@
-name: SQL Deployment with Manual Approval
+name: CI/CD SQL Deployment with Manual Approval
 
 on:
   push:
@@ -10,12 +10,11 @@ jobs:
     name: Deploy to Development
     uses: ./.github/workflows/sql-deployment-template.yml
     with:
-      environment_name: "development"
       sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
       sql_server: ${{ secrets.SQL_SERVER }}
       sql_user: ${{ secrets.SQL_USER }}
-      sql_password: ${{ secrets.SQL_PASSWORD }}
+      sql_pass: ${{ secrets.SQL_PASS }}
 
   approve-production:
     name: Wait for Manual Approval
@@ -26,16 +25,15 @@ jobs:
       url: 'https://rnimg-102-66-182-14.a.free.pinggy.link:44225'
     steps:
       - name: Awaiting approval to deploy to production
-        run: echo " Approved! Proceeding to production deployment."
+        run: echo "Approved! Proceeding to production deployment."
 
   run-production-deploy:
     name: Deploy to Production via Template
     needs: approve-production
     uses: ./.github/workflows/sql-deployment-template.yml
     with:
-      environment_name: "Production"
-      sql_file:  DatabaseAdministration/SQLStatements/create_db2.sql
+      sql_file: DatabaseAdministration/SQLStatements/create_db2.sql
     secrets:
       sql_server: ${{ secrets.PROD_SQL_SERVER }}
       sql_user: ${{ secrets.PROD_SQL_USER }}
-      sql_password: ${{ secrets.PROD_SQL_PASS }}
+      sql_pass: ${{ secrets.PROD_SQL_PASS }}
