@@ -10,39 +10,15 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
         environment: [development, production]
 
-    environment: ${{ matrix.environment }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install SQL tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl gnupg
-          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
-          echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
-
-      - name: Set environment-specific variables
-        run: |
-          if [ "${{ matrix.environment }}" == "development" ]; then
-            echo "SQL_SERVER=${{ secrets.SQL_SERVER }}" >> $GITHUB_ENV
-            echo "SQL_USER=${{ secrets.SQL_USER }}" >> $GITHUB_ENV
-            echo "SQL_PASSWORD=${{ secrets.SQL_PASSWORD }}" >> $GITHUB_ENV
-          else
-            echo "SQL_SERVER=${{ secrets.PROD_SQL_SERVER }}" >> $GITHUB_ENV
-            echo "SQL_USER=${{ secrets.PROD_SQL_USER }}" >> $GITHUB_ENV
-            echo "SQL_PASSWORD=${{ secrets.PROD_SQL_PASS }}" >> $GITHUB_ENV
-          fi
-
-      - name: Execute SQL script
-        run: |
-          sqlcmd -S "$SQL_SERVER" -U "$SQL_USER" -P "$SQL_PASSWORD" -i DatabaseAdministration/SQLStatements/create_db2.sql
+    uses: ./.github/workflows/sql-deployment-template.yml
+    with:
+      environment_name: ${{ matrix.environment }}
+      sql_server: ${{ secrets.SQL_SERVER }}
+      sql_user: ${{ secrets.SQL_USER }}
+      sql_password: ${{ secrets.SQL_PASSWORD }}
+      script_path: DatabaseAdministration/SQLStatements/create_db2.sql
+    secrets: inherit
