@@ -17,7 +17,7 @@ BEGIN CATCH
 END CATCH
 GO
 
---- 2. Switch to the new database
+-- 2. Switch to the new database
 BEGIN TRY
     USE AutoDB_KaraboTsaoane;
     PRINT 'Switched to AutoDB_KaraboTsaoane database.';
