@@ -26,7 +26,7 @@ jobs:
         run: echo "Approved! Proceeding to production deployment."
 
   run-production-deploy:
-    name: Deploy to Prod via Template
+    name: Deploy to Prod
     needs: approve-production
     uses: ./.github/workflows/sql-deployment-template.yml
     with:
