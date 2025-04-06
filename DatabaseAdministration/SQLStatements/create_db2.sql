@@ -1,5 +1,5 @@
 
--- 1. Check if database exists, create it if not
+--- 1. Check if database exists, create it if not
 BEGIN TRY
     IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'AutoDB_KaraboTsaoane')
     BEGIN
@@ -17,7 +17,7 @@ BEGIN CATCH
 END CATCH
 GO
 
--- 2. Switch to the new database
+--- 2. Switch to the new database
 BEGIN TRY
     USE AutoDB_KaraboTsaoane;
     PRINT 'Switched to AutoDB_KaraboTsaoane database.';
