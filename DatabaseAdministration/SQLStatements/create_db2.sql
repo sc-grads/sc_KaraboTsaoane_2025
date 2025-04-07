@@ -1,14 +1,14 @@
 
 --- 1. Check if database exists, create it if not
 BEGIN TRY
-    IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'AutoDB_KaraboTsaoane')
+    IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'AutoTest_KaraboTsaoane')
     BEGIN
-        CREATE DATABASE AutoDB_KaraboTsaoane;
-        PRINT 'Database AutoDB_KaraboTsaoane created successfully.';
+        CREATE DATABASE AutoTest_KaraboTsaoane;
+        PRINT 'Database AutoTest_KaraboTsaoane created successfully.';
     END
     ELSE
     BEGIN
-        PRINT 'Database AutoDB_KaraboTsaoane already exists.';
+        PRINT 'Database AutoTest_KaraboTsaoane already exists.';
     END
 END TRY
 BEGIN CATCH
@@ -19,8 +19,8 @@ GO
 
 --- 2. Switch to the new database
 BEGIN TRY
-    USE AutoDB_KaraboTsaoane;
-    PRINT 'Switched to AutoDB_KaraboTsaoane database.';
+    USE AutoTest_KaraboTsaoane;
+    PRINT 'Switched to AutoTest_KaraboTsaoane database.';
 END TRY
 BEGIN CATCH
     PRINT 'Error switching database: ' + ERROR_MESSAGE();
