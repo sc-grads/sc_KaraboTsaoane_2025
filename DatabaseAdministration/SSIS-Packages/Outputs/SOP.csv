@@ -1,0 +1,182 @@
+StateProvinceID,StateProvinceCode,Name,CountryRegionCode,TerritoryID
+5,AS ,American Samoa,AS,1
+77,VIC,Victoria,AU,9
+71,TAS,Tasmania,AU,9
+66,SA ,South Australia,AU,9
+64,QLD,Queensland,AU,9
+50,NSW,New South Wales,AU,9
+83,YT ,Yukon Territory,CA,6
+69,SK ,Saskatchewan,CA,6
+63,QC ,Quebec,CA,6
+60,PE ,Prince Edward Island,CA,6
+57,ON ,Ontario,CA,6
+51,NT ,Northwest Territories,CA,6
+49,NS ,Nova Scotia,CA,6
+45,NF ,Newfoundland,CA,6
+41,NB ,Brunswick,CA,6
+31,MB ,Manitoba,CA,6
+29,LB ,Labrador,CA,6
+7,BC ,British Columbia,CA,6
+1,AB ,Alberta,CA,6
+86,SN ,Saxony,DE,8
+70,SL ,Saarland,DE,8
+53,NW ,Nordrhein-Westfalen,DE,8
+20,HH ,Hamburg,DE,8
+19,HE ,Hessen,DE,8
+8,BY ,Bayern,DE,8
+85,BB ,Brandenburg,DE,8
+16,FM ,Micronesia,FM,9
+84,FR ,France,FR,7
+181,95 ,Val d'Oise,FR,7
+180,94 ,Val de Marne,FR,7
+179,93 ,Seine Saint Denis,FR,7
+178,92 ,Hauts de Seine,FR,7
+177,91 ,Essonne,FR,7
+176,90 ,Belford (Territoire de),FR,7
+175,89 ,Yonne,FR,7
+174,88 ,Vosges,FR,7
+173,87 ,Vienne (Haute),FR,7
+172,86 ,Vienne,FR,7
+171,85 ,La Vendée,FR,7
+170,84 ,Vaucluse,FR,7
+169,83 ,Var,FR,7
+168,82 ,Tarne et Garonne,FR,7
+167,81 ,Tarne,FR,7
+166,80 ,Somme,FR,7
+165,79 ,Sèvres (Deux),FR,7
+164,78 ,Yveline,FR,7
+163,77 ,Seine et Marne,FR,7
+162,76 ,Seine Maritime,FR,7
+161,75 ,Seine (Paris),FR,7
+160,74 ,Savoie Haute,FR,7
+159,73 ,Savoie,FR,7
+158,72 ,Sarthe,FR,7
+157,71 ,Saône et Loire,FR,7
+156,70 ,Saône (Haute),FR,7
+155,69 ,Rhône,FR,7
+154,68 ,Rhin (Haut),FR,7
+153,67 ,Rhin (Bas),FR,7
+152,66 ,Pyrénées Orientales,FR,7
+151,65 ,Pyrénées (Hautes),FR,7
+150,64 ,Pyrénées Atlantiques,FR,7
+149,63 ,Puy de Dôme,FR,7
+148,62 ,Pas de Calais,FR,7
+147,61 ,Orne,FR,7
+146,60 ,Oise,FR,7
+145,59 ,Nord,FR,7
+144,58 ,Nièvre,FR,7
+143,57 ,Moselle,FR,7
+142,56 ,Morbihan,FR,7
+141,55 ,Meuse,FR,7
+140,54 ,Meurthe et Moselle,FR,7
+139,53 ,Mayenne,FR,7
+138,52 ,Marne (Haute),FR,7
+137,51 ,Marne,FR,7
+136,50 ,Manche,FR,7
+135,49 ,Maine et Loire,FR,7
+134,48 ,Lozère,FR,7
+133,47 ,Lot et Garonne,FR,7
+132,46 ,Lot,FR,7
+131,45 ,Loiret,FR,7
+130,44 ,Loire Atlantique,FR,7
+129,43 ,Loire (Haute),FR,7
+128,42 ,Loire,FR,7
+127,41 ,Loir et Cher,FR,7
+126,40 ,Landes,FR,7
+125,39 ,Jura,FR,7
+124,38 ,Isère,FR,7
+123,37 ,Indre et Loire,FR,7
+122,36 ,Indre,FR,7
+121,35 ,Ille et Vilaine,FR,7
+120,34 ,Hérault,FR,7
+119,33 ,Gironde,FR,7
+118,32 ,Gers,FR,7
+117,31 ,Garonne (Haute),FR,7
+116,30 ,Gard,FR,7
+115,29 ,Finistère,FR,7
+114,28 ,Eure et Loir,FR,7
+113,27 ,Eure,FR,7
+112,26 ,Drôme,FR,7
+111,25 ,Toubs,FR,7
+110,24 ,Dordogne,FR,7
+109,23 ,Creuse,FR,7
+108,22 ,Côtes-d'Armor,FR,7
+107,21 ,Côte d'Or,FR,7
+106,20 ,Corse,FR,7
+105,19 ,Corrèze,FR,7
+104,18 ,Cher,FR,7
+103,17 ,Charente-Maritime,FR,7
+102,16 ,Charente,FR,7
+101,15 ,Cantal,FR,7
+100,14 ,Calvados,FR,7
+99,13 ,Bouches du Rhône,FR,7
+98,12 ,Aveyron,FR,7
+97,11 ,Aude,FR,7
+96,10 ,Aube,FR,7
+95,09 ,Ariège,FR,7
+94,08 ,Ardennes,FR,7
+93,07 ,Ardèche,FR,7
+92,06 ,Alpes-Maritimes,FR,7
+91,05 ,Alpes (Haute),FR,7
+90,04 ,Alpes-de-Haute Provence,FR,7
+89,03 ,Allier,FR,7
+88,02 ,Aisne,FR,7
+87,01 ,Ain,FR,7
+14,ENG,England,GB,10
+34,MH ,Marshall Islands,MH,9
+38,MP ,Northern Mariana Islands,MP,9
+62,PW ,Palau,PW,9
+82,WY ,Wyoming,US,1
+81,WV ,West Virginia,US,5
+80,WI ,Wisconsin,US,3
+79,WA ,Washington,US,1
+78,VT ,Vermont,US,2
+75,VA ,Virginia,US,5
+74,UT ,Utah,US,1
+73,TX ,Texas,US,4
+72,TN ,Tennessee,US,5
+68,SD ,South Dakota,US,3
+67,SC ,South Carolina,US,5
+65,RI ,Rhode Island,US,2
+61,PR ,Puerto Rico,US,5
+59,PA ,Pennsylvania,US,2
+58,OR ,Oregon,US,1
+56,OK ,Oklahoma,US,3
+55,OH ,Ohio,US,2
+54,NY ,New York,US,2
+52,NV ,Nevada,US,1
+48,NM ,New Mexico,US,4
+47,NJ ,New Jersey,US,2
+46,NH ,New Hampshire,US,2
+44,NE ,Nebraska,US,3
+43,ND ,North Dakota,US,3
+42,NC ,North Carolina,US,5
+40,MT ,Montana,US,1
+39,MS ,Mississippi,US,5
+37,MO ,Missouri,US,3
+36,MN ,Minnesota,US,3
+35,MI ,Michigan,US,3
+33,ME ,Maine,US,2
+32,MD ,Maryland,US,2
+30,MA ,Massachusetts,US,2
+28,LA ,Louisiana,US,3
+27,KY ,Kentucky,US,5
+26,KS ,Kansas,US,3
+25,IN ,Indiana,US,2
+24,IL ,Illinois,US,3
+23,ID ,Idaho,US,1
+22,IA ,Iowa,US,3
+21,HI ,Hawaii,US,1
+18,GU ,Guam,US,4
+17,GA ,Georgia,US,5
+15,FL ,Florida,US,5
+13,DE ,Delaware,US,2
+12,DC ,District of Columbia,US,2
+11,CT ,Connecticut,US,2
+10,CO ,Colorado,US,3
+9,CA ,California,US,4
+6,AZ ,Arizona,US,4
+4,AR ,Arkansas,US,3
+3,AL ,Alabama,US,5
+2,AK ,Alaska,US,1
+76,VI ,Virgin Islands,VI,5
