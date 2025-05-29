@@ -1,0 +1,11 @@
+Month	 DayOfWeek	Expenses
+January	 Sunday		200
+January	 Monday		100
+January	 Tuesday	123
+January	 Wednesday	154
+
+
+February	 Sunday		400
+February	 Monday		200
+February	 Tuesday	523
+February	 Wednesday	754

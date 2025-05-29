@@ -2,123 +2,138 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>DataFlowTraining</Name>
-    <LastWriteTime>2025-05-28T13:28:47.7893417Z</LastWriteTime>
+    <LastWriteTime>2025-05-28T20:29:14.3435135Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2025-05-27T09:38:58.5906419Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1227698Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package1.dtsx</Name>
-      <LastWriteTime>2025-05-27T10:01:47.5601723Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1227698Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>01_ExportToFlatFileDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T13:22:43.643793Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.0949101Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>02_CharacterMapDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T13:46:51.5213335Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.0949101Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>03_CopyColumnDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T19:27:08.265648Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.0949101Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>04_DerivedColumnDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T20:31:18.9153936Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.0949101Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>05_PercentageSamplingDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T20:32:39.9599298Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1067031Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>06_RowSampling.dtsx</Name>
-      <LastWriteTime>2025-05-27T20:53:17.6073498Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>07_SortDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T21:01:31.745899Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>08_UnionAllDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T21:13:50.6666647Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>09_Multicast.dtsx</Name>
-      <LastWriteTime>2025-05-27T21:25:22.5198303Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>10_ConditionalSplitDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T21:44:28.7079277Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>11_AggregateDemo.dtsx</Name>
-      <LastWriteTime>2025-05-27T21:59:41.3325719Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>12_AuditDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T06:48:55.8909601Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>13_ExportColumnDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T07:16:17.0297239Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>14_ImportColumnDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T08:03:32.7580271Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:39:30.1082293Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>15_MergeDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T08:17:15.9228166Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6406988Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>16_MergeJoinDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T08:33:28.5966049Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6426984Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>17_LookupDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T08:48:46.9316512Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6436986Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>18_CacheTransformDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T12:13:27.1328723Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6456985Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>19_FuzzyLookUpDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T13:12:34.2069326Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6476993Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>21_RowCountDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T13:12:34.1909539Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6486978Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>OLEDBCommandDemo.dtsx</Name>
-      <LastWriteTime>2025-05-28T13:28:47.7323407Z</LastWriteTime>
+      <LastWriteTime>2025-05-28T15:40:01.6546305Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>25_PivotDemo.dtsx</Name>
+      <LastWriteTime>2025-05-28T19:45:13.7807657Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>26_Unpivot.dtsx</Name>
+      <LastWriteTime>2025-05-28T20:15:20.1044718Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>23_TermExtractionDemo.dtsx</Name>
+      <LastWriteTime>2025-05-28T20:36:23.5501858Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

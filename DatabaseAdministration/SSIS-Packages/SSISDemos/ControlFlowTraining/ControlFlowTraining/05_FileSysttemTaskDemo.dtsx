@@ -1,0 +1,149 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/29/2025 8:15:45 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OKDI7SQH"
+  DTS:CreatorName="LAPTOP-OKDI7SQH\Karabo Tsaoane"
+  DTS:DTSID="{8E80B57E-E013-49AD-8171-1C72103A4FE5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="05_FileSysttemTaskDemo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{2FA4BA33-7B87-41C3-87E8-9A91C180C67A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CopyFile.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{664BFB1A-F892-4DC0-90C7-5464EDBF952C}"
+      DTS:ObjectName="CopyFile.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\sc_KaraboTsaoane_2025\DatabaseAdministration\SSIS-Packages\CopyFile.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Pivot Source.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{950F27F9-27D7-40D2-AB6C-9862B3DBFC62}"
+      DTS:ObjectName="Pivot Source.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\sc_KaraboTsaoane_2025\DatabaseAdministration\SSIS-Packages\Pivot Source.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C6FDF4F-D5A3-4428-8014-AE283CD8E55C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\sc_KaraboTsaoane_2025\DatabaseAdministration\SSIS-Packages\Pivot Source.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9C28ECE-CCE4-40FD-BC7E-BD512B0910DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\sc_KaraboTsaoane_2025\DatabaseAdministration\SSIS-Packages\UsingVar.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{DB1F9CDA-0FE1-4EBE-BDE0-3F22EA147082}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{950F27F9-27D7-40D2-AB6C-9862B3DBFC62}"
+          TaskDestinationPath="{664BFB1A-F892-4DC0-90C7-5464EDBF952C}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\File System Task 1"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{958BAB65-CF96-4EE3-84D4-F6A3000B33EE}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task 1"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::SourceFile"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::TargetFile"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\File System Task 2"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{7947837F-92EB-47AD-8F06-9973AC484B8C}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task 2"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="SetAttributes"
+          TaskSourcePath="{664BFB1A-F892-4DC0-90C7-5464EDBF952C}"
+          TaskFileAttributes="Hidden, ReadOnly" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\File System Task"
+          TopLeft="119.999993443489,156.866665575835" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\File System Task 1"
+          TopLeft="150.833325092164,216.666665159994" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\File System Task 2"
+          TopLeft="565.833302417564,170.733332146075" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
