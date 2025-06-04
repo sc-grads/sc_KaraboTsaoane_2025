@@ -5,46 +5,46 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-OKDI7SQH"
   DTS:CreatorName="LAPTOP-OKDI7SQH\Karabo Tsaoane"
-  DTS:DTSID="{FEC0A594-166F-41FC-AEFA-3AF3B39F4EE9}"
+  DTS:DTSID="{ECFFE98A-79A0-4AA0-8413-A07BA1437CFE}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="7177"
-  DTS:ObjectName="ExtractGraduateNames"
+  DTS:ObjectName="ExtractEmployeeNames"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{B1891FB3-066B-414B-ADCE-4DB9A597B930}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{0000238B-84BB-487B-A9B0-6844239471D8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6E0CF3C1-F864-4AD7-BC02-AF633849A6D8}"
+      DTS:DTSID="{0E5A2800-4B48-4540-9AF5-7D1B312626DC}"
       DTS:ObjectName="LAPTOP-OKDI7SQH.TimesheetDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ExtractGraduateNames-{6E0CF3C1-F864-4AD7-BC02-AF633849A6D8}LAPTOP-OKDI7SQH.TimesheetDB;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ExtractGraduateNames-{0E5A2800-4B48-4540-9AF5-7D1B312626DC}LAPTOP-OKDI7SQH.TimesheetDB;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.YakuzaTimesheetsDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6E307EE3-D149-40A2-B222-C55D69BC71F8}"
+      DTS:DTSID="{B119C2D2-84EB-4F2C-989F-9713C5D51CAA}"
       DTS:ObjectName="LAPTOP-OKDI7SQH.YakuzaTimesheetsDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=YakuzaTimesheetsDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractGraduateNames-{6E307EE3-D149-40A2-B222-C55D69BC71F8}LAPTOP-OKDI7SQH.YakuzaTimesheetsDB;" />
+          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=YakuzaTimesheetsDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractGraduateNames-{B119C2D2-84EB-4F2C-989F-9713C5D51CAA}LAPTOP-OKDI7SQH.YakuzaTimesheetsDB;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5F65F2E0-FBD6-433B-8C35-93ADA702F065}"
+      DTS:DTSID="{A3C42090-74EC-45B3-B680-F696152AD47C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FullName">
@@ -54,7 +54,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{37597159-12F8-41A0-8A36-03241461811D}"
+      DTS:DTSID="{C48071A4-988E-4BD1-9DAD-82A8ADC497EA}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="GraduateFolder">
@@ -64,7 +64,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A19A71DC-1F39-4924-92D9-6576737B376A}"
+      DTS:DTSID="{ECE11AB0-E11E-47B4-B2CB-11AB755D12C1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="RootFolder">
@@ -77,14 +77,14 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{699A0AA3-2482-4C2C-BA46-A1FEEF57F776}"
+      DTS:DTSID="{CA976E17-B3B1-45CC-8FB7-80BD99558750}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{D2F2F890-F44E-432B-A317-E4A0FA86C375}"
-        DTS:ObjectName="{D2F2F890-F44E-432B-A317-E4A0FA86C375}">
+        DTS:DTSID="{F2BA713D-47CF-4C1E-B1DF-2B3FD9DA2BC2}"
+        DTS:ObjectName="{F2BA713D-47CF-4C1E-B1DF-2B3FD9DA2BC2}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -104,7 +104,7 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{4404AA77-7834-422A-ADDC-E54CDE93F562}"
+          DTS:DTSID="{59CCE655-EADA-4807-B3B5-FAA025C2DA89}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -192,9 +192,8 @@
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="FullName"
-                          cachedSortKeyPosition="1"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[FullName]" />
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Script Component.Outputs[Output].Columns[FullName]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1132,90 +1131,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     </output>
                   </outputs>
                 </component>
-                <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\Sort"
-                  componentClassID="Microsoft.Sort"
-                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-                  name="Sort"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                      name="EliminateDuplicates">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the maximum number of threads to use for sorting."
-                      expressionType="Notify"
-                      name="MaximumThreads">-1</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach Loop Container\Data Flow Task\Sort.Inputs[Sort Input]"
-                      name="Sort Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Sort.Inputs[Sort Input].Columns[FullName]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="FullName"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Script Component.Outputs[Output].Columns[FullName]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">1</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Sort.Outputs[Sort Output]"
-                      isSorted="true"
-                      name="Sort Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[FullName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[FullName]"
-                          name="FullName"
-                          sortKeyPosition="1">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\Foreach Loop Container\Data Flow Task\Script Component.Outputs[Output].Columns[FullName]}</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
               </components>
               <paths>
                 <path
                   refId="Package\Foreach Loop Container\Data Flow Task.Paths[Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\Sort.Inputs[Sort Input]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="Output"
                   startId="Package\Foreach Loop Container\Data Flow Task\Script Component.Outputs[Output]" />
-                <path
-                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Sort Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Sort Output"
-                  startId="Package\Foreach Loop Container\Data Flow Task\Sort.Outputs[Sort Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1224,8 +1146,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{DBFCEADA-F7B9-4B28-88E7-CEEC4D9E93B9}"
-          DTS:ObjectName="{DBFCEADA-F7B9-4B28-88E7-CEEC4D9E93B9}"
+          DTS:DTSID="{93026359-D6BC-4B17-A5A8-33B673EBD99C}"
+          DTS:ObjectName="{93026359-D6BC-4B17-A5A8-33B673EBD99C}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::GraduateFolder" />
       </DTS:ForEachVariableMappings>
@@ -1261,79 +1183,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package\Foreach Loop Container\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
-          TopLeft="228.166662902468,270.799996543328" />
+          TopLeft="218.999996736646,197.99999704957" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Script Component"
-          TopLeft="220.666663510932,45.0666656300756" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Sort"
-          TopLeft="238.166662356092,139.266664831175" />
+          TopLeft="223.99999666214,90.9999986439943" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Output]"
-          TopLeft="301.466663510932,86.6666656300756">
+          TopLeft="304.699996699393,132.599998643994">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.5000011548399,52.5999992010989"
+              EndConnector="0,65.3999984055756"
               Start="0,0"
-              End="-14.5000011548399,45.0999992010989">
+              End="0,57.8999984055756">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.2999996005495" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.2999996005495"
-                    Point2="0,26.2999996005495"
-                    Point3="-4,26.2999996005495" />
-                  <mssgle:LineSegment
-                    End="-10.5000011548399,26.2999996005495" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.5000011548399,26.2999996005495"
-                    Point2="-14.5000011548399,26.2999996005495"
-                    Point3="-14.5000011548399,30.2999996005495" />
-                  <mssgle:LineSegment
-                    End="-14.5000011548399,45.0999992010989" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Sort Output]"
-          TopLeft="286.966662356092,180.866664831175">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.800000546376,89.9333317121533"
-              Start="0,0"
-              End="26.800000546376,82.4333317121533">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.9666658560766" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.9666658560766"
-                    Point2="0,44.9666658560766"
-                    Point3="4,44.9666658560766" />
-                  <mssgle:LineSegment
-                    End="22.800000546376,44.9666658560766" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.800000546376,44.9666658560766"
-                    Point2="26.800000546376,44.9666658560766"
-                    Point3="26.800000546376,48.9666658560766" />
-                  <mssgle:LineSegment
-                    End="26.800000546376,82.4333317121533" />
+                    End="0,57.8999984055756" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
