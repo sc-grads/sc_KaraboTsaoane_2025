@@ -143,6 +143,11 @@
           <FullPath>44_XMLSourceAndRawFileDestination.dtsx</FullPath>
           <References />
         </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>50_CDC_InitialLoadDemo.dtsx</Name>
+          <FullPath>50_CDC_InitialLoadDemo.dtsx</FullPath>
+          <References />
+        </DtsPackage>
       </DTSPackages>
     </Manifest>
   </DeploymentModelSpecificContent>

@@ -32,3 +32,27 @@ Thumbs.db
 htmlcov/
 .coverage
 *.cover
+
+# SSIS build and deployment artifacts
+*.dtproj.user
+*.designer.cs
+*.cache
+*.dbmdl
+*.deploymanifest
+*.ispac
+*.log
+*.suo
+
+# SSIS bin and obj folders (build artifacts)
+**/bin/
+**/obj/
+
+# SQL Server Data Tools (SSDT) folders
+*.rptproj.user
+*.sqlproj.user
+
+# Backup files
+*.bak
+
+# SSIS package metadata (optional)
+*.dtsx~*
