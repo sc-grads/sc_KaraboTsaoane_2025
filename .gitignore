@@ -56,3 +56,73 @@ htmlcov/
 
 # SSIS package metadata (optional)
 *.dtsx~*
+
+
+# Visual Studio build output
+bin/
+obj/
+
+# NuGet Packages
+packages/
+*.nupkg
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+bld/
+
+# Visual Studio cache files
+*.Cache
+*.pidb
+*.sdf
+*.opensdf
+*.tlog
+*.log
+
+# Visual Studio database project files
+*.dbmdl
+
+# SSIS-specific files (if applicable)
+*.dtsConfig
+*.dtproj.user
+
+# Test Results
+TestResults/
+
+# Backup files
+*~ 
+*.bak
+
+# SQL Server files (if applicable)
+*.mdf
+*.ldf
+
+# Visual Studio Code User files
+.vscode/
+
+# macOS-specific files (if using on macOS)
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore node_modules (if using Node.js in the project)
+node_modules/
+
+# Ignore Python virtual environments (if applicable)
+venv/
+__pycache__/
+
+# Ignore any custom build directories or files
+[Oo]ut/
