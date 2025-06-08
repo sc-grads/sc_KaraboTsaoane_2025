@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2025 11:47:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OKDI7SQH"
+  DTS:CreatorName="LAPTOP-OKDI7SQH\Karabo Tsaoane"
+  DTS:DTSID="{A8F9F192-A126-4EDB-A431-18B89599DB0E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="ExtractClientNames"
+  DTS:PackageType="5"
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{0EF07E50-0959-4625-A085-6773C16F6269}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{748DEC4F-131B-4E7B-BFF3-2ABBD4E602E4}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Karabo Tsaoane\Documents\TimeSheets\Muzuvukile_Nqwiliso\Muzuvukile Nqwiliso April Final.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42665616-5DD2-439C-8EAA-FAF4980D0A9E}"
+      DTS:ObjectName="LAPTOP-OKDI7SQH.TimesheetDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractClientNames-{42665616-5DD2-439C-8EAA-FAF4980D0A9E}LAPTOP-OKDI7SQH.TimesheetDB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F82AE015-82BA-4B28-8E52-AF7439D66E72}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelConnection">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7EC1DF1-4F19-4A58-B6FB-A3EBE7B9A69C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Karabo Tsaoane\Documents\TimeSheets\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0982CA65-ABED-4F04-81ED-BBFDC4C762E5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\For each employee folder"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{94EF7CC5-8C64-4081-8923-D17B16044683}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="For each employee folder">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{75014CB9-B81B-428E-A3D5-A98CB63241DD}"
+        DTS:ObjectName="{75014CB9-B81B-428E-A3D5-A98CB63241DD}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Karabo Tsaoane\Documents\TimeSheets\" />
+            <FEFEProperty
+              FileSpec="*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="-1" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For each employee folder\For excel File"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{468131D1-9842-465E-B23B-ED046B3D63AB}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="For excel File">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{4454F543-C5DA-4699-A3A5-13CA214D7EF5}"
+            DTS:ObjectName="{4454F543-C5DA-4699-A3A5-13CA214D7EF5}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\Users\Karabo Tsaoane\Documents\TimeSheets\Karabo_Tsaoane" />
+                <FEFEProperty
+                  FileSpec="*.xlsx" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="-1" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\For each employee folder\For excel File\Data Flow Task"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{144CE53B-1942-4956-A584-1FBF2502EBA3}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Data Flow Task"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split"
+                      componentClassID="Microsoft.ConditionalSplit"
+                      contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                      description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                      name="Conditional Split"
+                      usesDispositions="true">
+                      <inputs>
+                        <input
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                          description="Input to the Conditional Split Transformation"
+                          name="Conditional Split Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[F1]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="F1"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]" />
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[KeepValidRows]"
+                          description="Output 1 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="KeepValidRows"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">![ISNULL](#{Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]}) &amp;&amp; [TRIM](#{Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]}) != ""</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">!ISNULL(F1) &amp;&amp; TRIM(F1) != ""</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">0</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[ValidRow]"
+                          description="Default Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          name="ValidRow"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              name="IsDefaultOut">true</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                          description="Error Output of the Conditional Split Transformation"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Conditional Split Error Output"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source"
+                      componentClassID="Microsoft.ExcelSource"
+                      contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Excel Source"
+                      name="Excel Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">Jun$</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Key$B:B40]</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::ExcelFilePath</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mapping from parameters in the SQL command to variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                          name="Excel Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F1]"
+                              length="255"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]"
+                              name="F1"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F1]"
+                              dataType="wstr"
+                              length="255"
+                              name="F1" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                          isErrorOut="true"
+                          name="Excel Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[F1]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[F1]"
+                              name="F1" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients"
+                      componentClassID="Microsoft.Lookup"
+                      contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                      description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                      name="Lookup Existing Clients"
+                      usesDispositions="true"
+                      version="6">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the SQL statement that generates the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ClientName FROM dbo.Client</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                          expressionType="Notify"
+                          name="SqlCommandParam"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT ClientName FROM dbo.Client) [refTable]
+where [refTable].[ClientName] = ?</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of connection used to access the reference dataset."
+                          name="ConnectionType"
+                          typeConverter="LookupConnectionType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the cache type of the lookup table."
+                          name="CacheType"
+                          typeConverter="CacheType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                          name="NoMatchBehavior"
+                          typeConverter="LookupNoMatchBehavior">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                          name="NoMatchCachePercentage">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                          name="MaxMemoryUsage">25</property>
+                        <property
+                          dataType="System.Int64"
+                          description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                          name="MaxMemoryUsage64">25</property>
+                        <property
+                          dataType="System.String"
+                          description="Indicates whether to reference metadata in an XML format."
+                          name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ClientName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                          name="ParameterMap">#{Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output].Columns[F1]};</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                          name="TreatDuplicateKeysAsError">false</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
+                          connectionManagerRefId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
+                          description="Connection manager used to access lookup data."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input]"
+                          name="Lookup Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input].Columns[F1]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="F1"
+                              cachedSortKeyPosition="1"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output].Columns[F1]">
+                              <properties>
+                                <property
+                                  dataType="System.String"
+                                  description="Specifies the column in the reference table that a column joins."
+                                  name="JoinToReferenceColumn">ClientName</property>
+                                <property
+                                  dataType="System.Null"
+                                  description="Specifies the column in the reference table from which a column is copied."
+                                  name="CopyFromReferenceColumn" />
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Match Output]"
+                          errorOrTruncationOperation="Lookup"
+                          exclusionGroup="1"
+                          name="Lookup Match Output"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup No Match Output]"
+                          description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                          exclusionGroup="1"
+                          name="Lookup No Match Output"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input]">
+                          <externalMetadataColumns />
+                        </output>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Lookup Error Output"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DB Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[Client]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
+                          connectionManagerRefId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[F1]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="F1"
+                              cachedSortKeyPosition="1"
+                              externalMetadataColumnId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientName]"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output].Columns[F1]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientID]"
+                              dataType="i4"
+                              name="ClientID" />
+                            <externalMetadataColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientName]"
+                              dataType="wstr"
+                              length="255"
+                              name="ClientName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\For each employee folder\For excel File\Data Flow Task\Sort"
+                      componentClassID="Microsoft.Sort"
+                      contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                      name="Sort"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                          name="EliminateDuplicates">true</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the maximum number of threads to use for sorting."
+                          expressionType="Notify"
+                          name="MaximumThreads">-1</property>
+                      </properties>
+                      <inputs>
+                        <input
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Inputs[Sort Input]"
+                          name="Sort Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Inputs[Sort Input].Columns[F1]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="F1"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]">
+                              <properties>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the comparison options for character data."
+                                  name="NewComparisonFlags">0</property>
+                                <property
+                                  dataType="System.Int32"
+                                  description="Specifies the sort order of the column."
+                                  name="NewSortKeyPosition">1</property>
+                              </properties>
+                            </inputColumn>
+                          </inputColumns>
+                          <externalMetadataColumns />
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output]"
+                          isSorted="true"
+                          name="Sort Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output].Columns[F1]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output].Columns[F1]"
+                              name="F1"
+                              sortKeyPosition="1">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.Int32"
+                                  description="Specifies the lineage identifier of the input column that is associated with this output column."
+                                  name="SortColumnId">#{Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[F1]}</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\For each employee folder\For excel File\Data Flow Task.Paths[Excel Source Output]"
+                      endId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                      name="Excel Source Output"
+                      startId="Package\For each employee folder\For excel File\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+                    <path
+                      refId="Package\For each employee folder\For excel File\Data Flow Task.Paths[KeepValidRows]"
+                      endId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Inputs[Sort Input]"
+                      name="KeepValidRows"
+                      startId="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split.Outputs[KeepValidRows]" />
+                    <path
+                      refId="Package\For each employee folder\For excel File\Data Flow Task.Paths[Lookup No Match Output]"
+                      endId="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      name="Lookup No Match Output"
+                      startId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Outputs[Lookup No Match Output]" />
+                    <path
+                      refId="Package\For each employee folder\For excel File\Data Flow Task.Paths[Sort Output]"
+                      endId="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients.Inputs[Lookup Input]"
+                      name="Sort Output"
+                      startId="Package\For each employee folder\For excel File\Data Flow Task\Sort.Outputs[Sort Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\For each employee folder\For excel File\Set Excel Connection String"
+              DTS:CreationName="Microsoft.ExpressionTask"
+              DTS:Description="Expression Task"
+              DTS:DTSID="{32B0C2A1-7441-41EC-BF05-3A264F1371DB}"
+              DTS:ExecutableType="Microsoft.ExpressionTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Set Excel Connection String"
+              DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExpressionTask
+                  Expression="@[User::ExcelConnection] = &quot;Provider=Microsoft.ACE.OLEDB.12.0;Data Source=&quot; + @[User::FileName] + &quot;;Extended Properties=\&quot;Excel 12.0 XML;HDR=YES\&quot;;&quot;" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\For each employee folder\For excel File.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{8D2882B1-DCC2-4EA8-B223-F3FBDC1F62D8}"
+              DTS:From="Package\For each employee folder\For excel File\Set Excel Connection String"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\For each employee folder\For excel File\Data Flow Task" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{ABE6276C-C75F-42F4-94D5-38918EEF271E}"
+              DTS:ObjectName="{ABE6276C-C75F-42F4-94D5-38918EEF271E}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{297EB1BE-D3E3-4A27-9B44-F94EF2D571DB}"
+          DTS:ObjectName="{297EB1BE-D3E3-4A27-9B44-F94EF2D571DB}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::ExcelFilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task"
+          TopLeft="42.2666526430188,94.3333310974307" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\For each employee folder\For excel File\Set Excel Connection String"
+          TopLeft="23.9333203113746,22.3333317483135" />
+        <EdgeLayout
+          Id="Package\For each employee folder\For excel File.PrecedenceConstraints[Constraint]"
+          TopLeft="127.933320311375,63.9333317483135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.4666676683558,30.3999993491172"
+              Start="0,0"
+              End="-10.4666676683558,22.8999993491172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1999996745586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1999996745586"
+                    Point2="0,15.1999996745586"
+                    Point3="-4,15.1999996745586" />
+                  <mssgle:LineSegment
+                    End="-6.4666676683558,15.1999996745586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.4666676683558,15.1999996745586"
+                    Point2="-10.4666676683558,15.1999996745586"
+                    Point3="-10.4666676683558,19.1999996745586" />
+                  <mssgle:LineSegment
+                    End="-10.4666676683558,22.8999993491172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="273.6,191.2"
+          Size="273.6,234.4"
+          Id="Package\For each employee folder\For excel File"
+          TopLeft="27.7666549651164,40.5999990055959" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="306.4,329.6"
+          Size="306.4,372.8"
+          Id="Package\For each employee folder"
+          TopLeft="186.66665646765,88.3999993852775" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\For each employee folder\For excel File\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task\Excel Source"
+          TopLeft="200.833322360284,2.48689957516035E-14" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients"
+          TopLeft="214.166654965117,204.533331911034" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination"
+          TopLeft="196.666655921274,296.866664635672" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task\Sort"
+          TopLeft="234.166653872365,129.133332435356" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\For each employee folder\For excel File\Data Flow Task\Conditional Split"
+          TopLeft="203.33332222369,58.9333329235183" />
+        <EdgeLayout
+          Id="Package\For each employee folder\For excel File\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="200.833322360284,20.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="2.49999986340634,58.9333329235182"
+              Start="0,0"
+              End="-5.00000013659366,58.9333329235182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,54.9333329235182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,54.9333329235182"
+                    Point2="-22.5,58.9333329235182"
+                    Point3="-18.5,58.9333329235182" />
+                  <mssgle:LineSegment
+                    End="-5.00000013659366,58.9333329235182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.5,-22,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For each employee folder\For excel File\Data Flow Task.Paths[Sort Output]"
+          TopLeft="282.966653872365,170.733332435356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.4000010927521,33.7999994756775"
+              Start="0,0"
+              End="24.4000010927521,26.2999994756775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.8999997378387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8999997378387"
+                    Point2="0,16.8999997378387"
+                    Point3="4,16.8999997378387" />
+                  <mssgle:LineSegment
+                    End="20.4000010927521,16.8999997378387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.4000010927521,16.8999997378387"
+                    Point2="24.4000010927521,16.8999997378387"
+                    Point3="24.4000010927521,20.8999997378387" />
+                  <mssgle:LineSegment
+                    End="24.4000010927521,26.2999994756775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.20000054637603,21.8999997378387,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For each employee folder\For excel File\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="307.366654965117,246.133331911034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.0999990438429,50.7333327246381"
+              Start="0,0"
+              End="-25.0999990438429,43.2333327246381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.366666362319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.366666362319"
+                    Point2="0,25.366666362319"
+                    Point3="-4,25.366666362319" />
+                  <mssgle:LineSegment
+                    End="-21.0999990438429,25.366666362319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.0999990438429,25.366666362319"
+                    Point2="-25.0999990438429,25.366666362319"
+                    Point3="-25.0999990438429,29.366666362319" />
+                  <mssgle:LineSegment
+                    End="-25.0999990438429,43.2333327246381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-68.3563862406714,30.366666362319,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For each employee folder\For excel File\Data Flow Task.Paths[KeepValidRows]"
+          TopLeft="281.549988048028,100.533332923518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.599999511838"
+              Start="0,0"
+              End="0,21.099999511838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.099999511838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.79623046875,2.549999755919,85.5924609375,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For each employee folder\For excel File\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\For each employee folder\For excel File\Data Flow Task\Lookup Existing Clients">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\For each employee folder\For excel File\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
