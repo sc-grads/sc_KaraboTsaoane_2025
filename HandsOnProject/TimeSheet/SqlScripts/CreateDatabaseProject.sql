@@ -94,7 +94,8 @@ CREATE TABLE Timesheet_Staging (
     Comments NVARCHAR(MAX),
     TotalHours FLOAT,
     StartTime TIME,
-    EndTime TIME
+    EndTime TIME,
+	FullName VARCHAR(100) NOT NULL
 );
 
 
