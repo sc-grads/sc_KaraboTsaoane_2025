@@ -58,8 +58,35 @@ BEGIN
         LeaveType VARCHAR(50) NOT NULL,
         StartDate DATE NOT NULL,
         EndDate DATE NOT NULL,
+		NumberOfDays int NOT NULL,
+        ApprovalObtained varchar(10) NOT NULL,
+	    SickNote varchar (10) NULL,
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
+	--Staging table for leave
+	CREATE TABLE Leave_Staging (
+    TypeOfLeave NVARCHAR(100),
+    StartDate DATE,
+    EndDate DATE,
+    NumberOfDays INT,
+    ApprovalObtained NVARCHAR(10),
+    SickNote NVARCHAR(50)
+);
+--Staging table fortimesheet
+CREATE TABLE Timesheet_Staging (
+    Date DATE,
+    DayOfWeek NVARCHAR(20),
+    Client NVARCHAR(100),
+    ClientProjectName NVARCHAR(200),
+    Description NVARCHAR(MAX),
+    Billable NVARCHAR(20),
+    Comments NVARCHAR(MAX),
+    TotalHours FLOAT,
+    StartTime TIME,
+    EndTime TIME
+);
+
+
 END;
 GO
 
