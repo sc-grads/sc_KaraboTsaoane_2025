@@ -59,7 +59,7 @@ BEGIN
         StartDate DATE NOT NULL,
         EndDate DATE NOT NULL,
 		NumberOfDays int NOT NULL,
-        ApprovalObtained varchar(10) NOT NULL,
+        ApprovalObtained varchar(10),
 	    SickNote varchar (10) NULL,
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
@@ -70,7 +70,8 @@ BEGIN
     EndDate DATE,
     NumberOfDays INT,
     ApprovalObtained NVARCHAR(10),
-    SickNote NVARCHAR(50)
+    SickNote NVARCHAR(50),
+	FullName VARCHAR(100) NOT NULL
 );
 --Staging table fortimesheet
 CREATE TABLE Timesheet_Staging (
