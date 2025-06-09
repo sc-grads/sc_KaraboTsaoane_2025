@@ -50,7 +50,6 @@ BEGIN
     FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
 );
 
-
     -- Updated Leave Table
     CREATE TABLE Leave (
         LeaveID INT PRIMARY KEY IDENTITY(1,1),
@@ -63,6 +62,17 @@ BEGIN
 	    SickNote varchar (10) NULL,
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
+	--Creating auditlog
+	CREATE TABLE AuditLog (
+    AuditID INT IDENTITY(1,1) PRIMARY KEY,
+    PackageName VARCHAR(100),
+    ExecutionStartTime DATETIME,
+    ExecutionEndTime DATETIME,
+    RecordsInserted INT,
+    Status VARCHAR(20),
+    Message VARCHAR(255)
+);
+
 	--Staging table for leave
 	CREATE TABLE Leave_Staging (
     TypeOfLeave NVARCHAR(100),
