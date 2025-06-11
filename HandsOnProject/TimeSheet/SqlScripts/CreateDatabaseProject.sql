@@ -19,7 +19,7 @@ BEGIN
     -- Client Table
     CREATE TABLE Client (
         ClientID INT PRIMARY KEY IDENTITY(1,1),
-        ClientName NVARCHAR(Max) NOT NULL UNIQUE
+        ClientName NVARCHAR(Max) NOT NULL 
     );
 
     -- Project Table
@@ -36,7 +36,6 @@ BEGIN
     TimeSheetEntryID INT PRIMARY KEY IDENTITY(1,1),
     EmployeeID INT NOT NULL,
 	ClientID INT NOT NULL,
-    ProjectID INT NOT NULL,
     Date DATE NOT NULL,
     DayOfWeek NVARCHAR(20) NOT NULL,
     Description NVARCHAR(20),
@@ -46,7 +45,6 @@ BEGIN
     EndTime TIME,
     TotalHours TIME,
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
-    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID),
 	 FOREIGN KEY (ClientID) REFERENCES Client(ClientID)
 );
 
@@ -59,14 +57,14 @@ BEGIN
         EndDate DATE NOT NULL,
 		NumberOfDays int NOT NULL,
         ApprovalObtained nvarchar(10),
-	    SickNote varchar (10) NULL,
+	    SickNote nvarchar (10) NULL,
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
 	--Creating auditlog
-	CREATE TABLE SSIS_AuditLog (
+	CREATE TABLE AuditLog (
     AuditID INT IDENTITY(1,1) PRIMARY KEY,
     PackageName NVARCHAR(100),
-    Status NVARCHAR(20),
+    ExecutionTime DateTime2(7),
     RowsInserted INT NULL,
     ErrorMessage NVARCHAR(MAX) NULL 
 );
