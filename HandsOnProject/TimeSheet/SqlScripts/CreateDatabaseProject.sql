@@ -13,65 +13,64 @@ BEGIN
     --Employee Table
     CREATE TABLE Employee (
         EmployeeID INT PRIMARY KEY IDENTITY(1,1),
-        FullName VARCHAR(100) NOT NULL
+        FullName NVARCHAR(Max) NOT NULL
     );
 
     -- Client Table
     CREATE TABLE Client (
         ClientID INT PRIMARY KEY IDENTITY(1,1),
-        ClientName VARCHAR(200) NOT NULL UNIQUE
+        ClientName NVARCHAR(Max) NOT NULL UNIQUE
     );
 
     -- Project Table
     CREATE TABLE Project (
         ProjectID INT PRIMARY KEY IDENTITY(1,1),
         ClientID INT NOT NULL,
-        ProjectName VARCHAR(200) NOT NULL,
+        ProjectName NVARCHAR(Max) NOT NULL,
         FOREIGN KEY (ClientID) REFERENCES Client(ClientID)
     );
-	--Wanted table to be null
-	ALTER TABLE Project
-    ALTER COLUMN ProjectName VARCHAR(200) NULL;
+	
 
     -- Updated TimeSheetEntry Table
  CREATE TABLE TimeSheetEntry (
     TimeSheetEntryID INT PRIMARY KEY IDENTITY(1,1),
     EmployeeID INT NOT NULL,
+	ClientID INT NOT NULL,
     ProjectID INT NOT NULL,
     Date DATE NOT NULL,
     DayOfWeek NVARCHAR(20) NOT NULL,
-    Description Text,
+    Description NVARCHAR(20),
 	Comments  NVARCHAR(MAX),
     Billable NVARCHAR(20),  -- e.g., 'Billable', 'Non-Billable', or NULL
     StartTime TIME,
     EndTime TIME,
     TotalHours TIME,
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
-    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID),
+	 FOREIGN KEY (ClientID) REFERENCES Client(ClientID)
 );
 
     -- Updated Leave Table
     CREATE TABLE Leave (
         LeaveID INT PRIMARY KEY IDENTITY(1,1),
         EmployeeID INT NOT NULL,
-        LeaveType VARCHAR(50) NOT NULL,
+        LeaveType NVARCHAR(50) NOT NULL,
         StartDate DATE NOT NULL,
         EndDate DATE NOT NULL,
 		NumberOfDays int NOT NULL,
-        ApprovalObtained varchar(10),
+        ApprovalObtained nvarchar(10),
 	    SickNote varchar (10) NULL,
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
 	--Creating auditlog
-	CREATE TABLE AuditLog (
+	CREATE TABLE SSIS_AuditLog (
     AuditID INT IDENTITY(1,1) PRIMARY KEY,
-    PackageName VARCHAR(100),
-    ExecutionStartTime DATETIME,
-    ExecutionEndTime DATETIME,
-    RecordsInserted INT,
-    Status VARCHAR(20),
-    Message VARCHAR(255)
+    PackageName NVARCHAR(100),
+    Status NVARCHAR(20),
+    RowsInserted INT NULL,
+    ErrorMessage NVARCHAR(MAX) NULL 
 );
+
 
 	--Staging table for leave
 	CREATE TABLE Leave_Staging (
@@ -92,10 +91,15 @@ CREATE TABLE Timesheet_Staging (
     Description NVARCHAR(MAX),
     Billable NVARCHAR(20),
     Comments NVARCHAR(MAX),
-    TotalHours FLOAT,
+    TotalHours TIME,
     StartTime TIME,
     EndTime TIME,
-	FullName VARCHAR(100) NOT NULL
+	FullName NVARCHAR(100) NOT NULL
+);
+--For the TimeEntrySheet
+CREATE TABLE ProcessedSheets (
+    SheetName NVARCHAR(100),
+    ProcessedDate DATETIME
 );
 
 
