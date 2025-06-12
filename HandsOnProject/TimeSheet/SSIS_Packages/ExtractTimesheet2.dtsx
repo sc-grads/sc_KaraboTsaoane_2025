@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="ExtractTimesheet2"
   DTS:PackageType="5"
-  DTS:VersionBuild="199"
-  DTS:VersionGUID="{C32C8B9D-05E5-4BA5-91C6-163074E3EF5C}">
+  DTS:VersionBuild="215"
+  DTS:VersionGUID="{F65F2C7C-C324-4D78-876F-CC0C735D88B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,19 +42,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB2;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractTimesheet-{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}LAPTOP-OKDI7SQH.TimesheetDB;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB2]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{7AD8D6BA-B07B-4A7F-8894-63A1AED6EFA6}"
-      DTS:ObjectName="LAPTOP-OKDI7SQH.TimesheetDB2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB2;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ExtractTimesheet2-{7AD8D6BA-B07B-4A7F-8894-63A1AED6EFA6}LAPTOP-OKDI7SQH.TimesheetDB2;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractTimesheet-{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}LAPTOP-OKDI7SQH.TimesheetDB;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -96,7 +84,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ExecutionTime">
       <DTS:VariableValue
-        DTS:DataType="8">2025-06-12 12:23:36.547000000</DTS:VariableValue>
+        DTS:DataType="8">2025-06-12 15:47:47.477000000</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -687,98 +675,98 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Date]"
                           dataType="date"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Date]"
                           name="Date"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[D of Week]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[D of Week]"
                           length="255"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[D of Week]"
                           name="D of Week"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Client]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Client]"
                           length="255"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Client]"
                           name="Client"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Client Project Name]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Client Project Name]"
                           length="255"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Client Project Name]"
                           name="Client Project Name"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Description]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Description]"
                           length="255"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Description]"
                           name="Description"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Billable or Non Billable]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Billable or Non Billable]"
                           length="255"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Billable or Non Billable]"
                           name="Billable or Non Billable"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Comments]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Comments]"
                           length="4000"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Comments]"
                           name="Comments"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Total Hours]"
                           dataType="date"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total Hours]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Total Hours]"
                           name="Total Hours"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Start Time]"
                           dataType="date"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Start Time]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Start Time]"
                           name="Start Time"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[End Time]"
                           dataType="date"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="RedirectRow"
+                          errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[End Time]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[End Time]"
                           name="End Time"
-                          truncationRowDisposition="RedirectRow" />
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1219,7 +1207,7 @@
                         <inputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[PackageName]"
                           cachedDataType="wstr"
-                          cachedLength="16"
+                          cachedLength="17"
                           cachedName="PackageName"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[PackageName]" />
@@ -1822,14 +1810,14 @@
                   startId="Package\Foreach Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
                   refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-                  name="Derived Column Output"
-                  startId="Package\Foreach Loop Container\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output1]"
                   endId="Package\Foreach Loop Container\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
                   name="Derived Column Output"
                   startId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output1]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Error Output]"
                   endId="Package\Foreach Loop Container\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
@@ -1863,7 +1851,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1905,7 +1893,7 @@
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Files"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <ScriptProject
@@ -2120,34 +2108,14 @@
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_38b80067822b427792c4543a48f13fd0.Properties.Settings.get_Default():ST_38b80067822b427792c4543a48f13fd0.Properties.Sett" +
-    "ings")]
-
-namespace ST_38b80067822b427792c4543a48f13fd0.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2285,6 +2253,35 @@ namespace ST_38b80067822b427792c4543a48f13fd0
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_38b80067822b427792c4543a48f13fd0.Properties.Settings.get_Default():ST_38b80067822b427792c4543a48f13fd0.Properties.Sett" +
+    "ings")]
+
+namespace ST_38b80067822b427792c4543a48f13fd0.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -2314,15 +2311,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2520,7 +2508,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Folder Names"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <ScriptProject
@@ -2736,34 +2724,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_648afff86144452ab8288f396a330912.Properties.Settings.get_Default():ST_648afff86144452ab8288f396a330912.Properties.Sett" +
-    "ings")]
-
-namespace ST_648afff86144452ab8288f396a330912.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2905,6 +2873,35 @@ namespace ST_648afff86144452ab8288f396a330912
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_648afff86144452ab8288f396a330912.Properties.Settings.get_Default():ST_648afff86144452ab8288f396a330912.Properties.Sett" +
+    "ings")]
+
+namespace ST_648afff86144452ab8288f396a330912.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -2934,15 +2931,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -3356,17 +3344,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1"
-          TopLeft="487.499973364176,160.866665720476" />
-        <NodeLayout
           Size="140,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Excel Source"
           TopLeft="235.833320447969,10.3999999276797" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Row Count"
-          TopLeft="257.499985930821,272.466666262878" />
+          Size="162.4,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1"
+          TopLeft="487.499973364176,160.866665720476" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
@@ -3380,133 +3364,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
           TopLeft="257.499985930821,358.666664834553" />
         <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Row Count"
+          TopLeft="257.499985930821,272.466666262878" />
+        <NodeLayout
           Size="161.6,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Derived Column 1"
-          TopLeft="454.166641852095,56.3333329415984" />
+          TopLeft="441.666642535065,77.9999994575978" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
           TopLeft="211.666655101711,67.599999529919" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="534.966641852095,97.9333329415984">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.7333315120807,62.9333327788776"
-              Start="0,0"
-              End="33.7333315120807,55.4333327788776">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.4666663894388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.4666663894388"
-                    Point2="0,31.4666663894388"
-                    Point3="4,31.4666663894388" />
-                  <mssgle:LineSegment
-                    End="29.7333315120807,31.4666663894388" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29.7333315120807,31.4666663894388"
-                    Point2="33.7333315120807,31.4666663894388"
-                    Point3="33.7333315120807,35.4666663894388" />
-                  <mssgle:LineSegment
-                    End="33.7333315120807,55.4333327788776" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Error Output]"
-          TopLeft="375.833320447969,31.1999999276797">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.333321404126,45.9333330139187"
-              Start="0,0"
-              End="70.833321404126,45.9333330139187">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.166660702063,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.166660702063,0"
-                    Point2="39.166660702063,0"
-                    Point3="39.166660702063,4" />
-                  <mssgle:LineSegment
-                    End="39.166660702063,41.9333330139187" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39.166660702063,41.9333330139187"
-                    Point2="39.166660702063,45.9333330139187"
-                    Point3="43.166660702063,45.9333330139187" />
-                  <mssgle:LineSegment
-                    End="70.833321404126,45.9333330139187" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.684726016687,-17.609375,115.7027734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Output]"
-          TopLeft="235.833320447969,31.1999999276797">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.833334653742,36.3999996022393"
-              Start="0,0"
-              End="53.833334653742,28.8999996022393">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="49.833334653742,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.833334653742,0"
-                    Point2="53.833334653742,0"
-                    Point3="53.833334653742,4" />
-                  <mssgle:LineSegment
-                    End="53.833334653742,28.8999996022393" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="291.31665421385,109.199999529919">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.1333330319984"
-              Start="0,0"
-              End="0,20.6333330319984">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6333330319984" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Sort Output]"
           TopLeft="292.966653325989,178.933332561917">
@@ -3533,40 +3401,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                     Point3="29.2666665756033,20.6999996474383" />
                   <mssgle:LineSegment
                     End="29.2666665756033,25.8999992948766" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="245.833319901592,233.133331856794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.6666660292288,60.1333344060838"
-              Start="0,0"
-              End="4.16666602922876,60.1333344060838">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,56.1333344060838" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,56.1333344060838"
-                    Point2="-22.5,60.1333344060838"
-                    Point3="-18.5,60.1333344060838" />
-                  <mssgle:LineSegment
-                    End="4.16666602922876,60.1333344060838" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3609,6 +3443,160 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="235.833320447969,31.1999999276797">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.833334653742,36.3999996022393"
+              Start="0,0"
+              End="53.833334653742,28.8999996022393">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.833334653742,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.833334653742,0"
+                    Point2="53.833334653742,0"
+                    Point3="53.833334653742,4" />
+                  <mssgle:LineSegment
+                    End="53.833334653742,28.8999996022393" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Error Output]"
+          TopLeft="305.833320447969,51.9999999276797">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="216.633322087096,25.9999995299181"
+              Start="0,0"
+              End="216.633322087096,18.4999995299181">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.99999976495904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.99999976495904"
+                    Point2="0,12.999999764959"
+                    Point3="4,12.999999764959" />
+                  <mssgle:LineSegment
+                    End="212.633322087096,12.999999764959" />
+                  <mssgle:CubicBezierSegment
+                    Point1="212.633322087096,12.999999764959"
+                    Point2="216.633322087096,12.999999764959"
+                    Point3="216.633322087096,16.999999764959" />
+                  <mssgle:LineSegment
+                    End="216.633322087096,18.4999995299181" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="50.465274324798,17.999999764959,115.7027734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="522.466642535065,119.599999457598">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.2333308291111,41.2666662628782"
+              Start="0,0"
+              End="46.2333308291111,33.7666662628782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6333331314391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6333331314391"
+                    Point2="0,20.6333331314391"
+                    Point3="4,20.6333331314391" />
+                  <mssgle:LineSegment
+                    End="42.2333308291111,20.6333331314391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.2333308291111,20.6333331314391"
+                    Point2="46.2333308291111,20.6333331314391"
+                    Point3="46.2333308291111,24.6333331314391" />
+                  <mssgle:LineSegment
+                    End="46.2333308291111,33.7666662628782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="245.833319901592,233.133331856794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.6666660292288,60.1333344060838"
+              Start="0,0"
+              End="4.16666602922876,60.1333344060838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,56.1333344060838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,56.1333344060838"
+                    Point2="-22.5,60.1333344060838"
+                    Point3="-18.5,60.1333344060838" />
+                  <mssgle:LineSegment
+                    End="4.16666602922876,60.1333344060838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="291.31665421385,109.199999529919">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.1333330319984"
+              Start="0,0"
+              End="0,20.6333330319984">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6333330319984" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3625,7 +3613,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     </LayoutInfo>
   </DtsEventHandler>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1">
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\Excel Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3638,7 +3626,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Data Flow Task\Excel Source">
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

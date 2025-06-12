@@ -1,9 +1,9 @@
 --Creating database
-CREATE DATABASE TimesheetDB2;
+CREATE DATABASE TimesheetDB;
 GO
 
 -- Use the database
-USE TimesheetDB2;
+USE TimesheetDB;
 GO
 
 -- Stored procedure to create the tables
@@ -21,7 +21,6 @@ BEGIN
         ClientID INT PRIMARY KEY IDENTITY(1,1),
         ClientName NVARCHAR(Max) NOT NULL 
     );
-
 
     -- Updated TimeSheetEntry Table
  CREATE TABLE Timesheet (
