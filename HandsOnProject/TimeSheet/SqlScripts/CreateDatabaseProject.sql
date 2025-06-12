@@ -32,8 +32,8 @@ BEGIN
 	
 
     -- Updated TimeSheetEntry Table
- CREATE TABLE TimeSheetEntry (
-    TimeSheetEntryID INT PRIMARY KEY IDENTITY(1,1),
+ CREATE TABLE Timesheet (
+    TimesheetID INT PRIMARY KEY IDENTITY(1,1),
     EmployeeID INT NOT NULL,
 	ClientID INT NOT NULL,
     Date DATE NOT NULL,
@@ -61,12 +61,12 @@ BEGIN
         FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
     );
 	--Creating auditlog
-	CREATE TABLE AuditLog (
+CREATE TABLE dbo.AuditLog (
     AuditID INT IDENTITY(1,1) PRIMARY KEY,
     PackageName NVARCHAR(100),
-    ExecutionTime DateTime2(7),
-    RowsInserted INT NULL,
-    ErrorMessage NVARCHAR(MAX) NULL 
+    FileName NVARCHAR(255),
+    RowsInserted INT,
+    Timestamp NVARCHAR(30)
 );
 
 
@@ -94,10 +94,14 @@ CREATE TABLE Timesheet_Staging (
     EndTime TIME,
 	FullName NVARCHAR(100) NOT NULL
 );
---For the TimeEntrySheet
-CREATE TABLE ProcessedSheets (
-    SheetName NVARCHAR(100),
-    ProcessedDate DATETIME
+--for Error Log
+CREATE TABLE ErrorLog (
+    ErrorID INT IDENTITY(1,1) PRIMARY KEY,
+    PackageName NVARCHAR(255),
+    TaskName NVARCHAR(255),
+    ErrorDescription NVARCHAR(MAX),
+    ErrorCode INT,
+    ErrorTime DATETIME DEFAULT GETDATE()
 );
 
 
