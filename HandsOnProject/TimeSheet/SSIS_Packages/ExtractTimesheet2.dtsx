@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-OKDI7SQH"
   DTS:CreatorName="LAPTOP-OKDI7SQH\Karabo Tsaoane"
-  DTS:DTSID="{AB8665E8-D00D-4584-8317-90EA5D3CCACA}"
+  DTS:DTSID="{AA0C9F80-3A93-4771-BB20-88C13BB3A4BB}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="7177"
   DTS:ObjectName="ExtractTimesheet2"
   DTS:PackageType="5"
-  DTS:VersionBuild="215"
-  DTS:VersionGUID="{F65F2C7C-C324-4D78-876F-CC0C735D88B8}">
+  DTS:VersionBuild="216"
+  DTS:VersionGUID="{BD0DA122-B669-491C-86FB-6ADB29237F8F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -20,7 +20,7 @@
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
       DTS:DelayValidation="True"
-      DTS:DTSID="{C7C5BC6B-58F1-4059-88E5-CCA38648A618}"
+      DTS:DTSID="{D375734E-873B-4797-AF45-8C65D2FBB9D2}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + @[User::FilePath] + ";Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\";"</DTS:PropertyExpression>
@@ -36,20 +36,20 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LAPTOP-OKDI7SQH.TimesheetDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}"
+      DTS:DTSID="{A52DBA53-890D-4988-8964-5180450BA7C1}"
       DTS:ObjectName="LAPTOP-OKDI7SQH.TimesheetDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractTimesheet-{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}LAPTOP-OKDI7SQH.TimesheetDB;" />
+          DTS:ConnectionString="Data Source=LAPTOP-OKDI7SQH;Initial Catalog=TimesheetDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-ExtractTimesheet-{A52DBA53-890D-4988-8964-5180450BA7C1}LAPTOP-OKDI7SQH.TimesheetDB;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{86BF1DE9-8ADE-4CEC-9FD3-C46C1F3E2AEB}"
+      DTS:DTSID="{82BC3D20-7218-4B85-9538-AC1EA46EEEC4}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="AuditID">
@@ -58,7 +58,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E5B9AF53-95C8-47F1-AED0-FF66096C9156}"
+      DTS:DTSID="{CA0B0E9D-FE92-4ED4-A6EF-D70C49259194}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="ErrorCode">
@@ -67,7 +67,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C664E3EB-35EF-4D9B-8B79-703D72DA99BC}"
+      DTS:DTSID="{CFD00C61-B584-4173-B6B8-E1297F14A82F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ErrorDescription">
@@ -77,18 +77,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7621B1F8-303C-4F45-A04C-B8D431C59A1A}"
+      DTS:DTSID="{8267CD3F-E95D-4351-A5BF-E3E9BAD5F31B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="(DT_WSTR, 30) GETDATE()"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ExecutionTime">
       <DTS:VariableValue
-        DTS:DataType="8">2025-06-12 15:47:47.477000000</DTS:VariableValue>
+        DTS:DataType="8">2025-06-13 14:25:47.092000000</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EAC4DE5C-BAF1-45BF-9478-7246F3E64374}"
+      DTS:DTSID="{1CC33E53-E4F8-42A9-A2C0-3159605818F5}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -98,7 +98,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{276814FA-7B26-4A62-AC4B-2481733DB5D3}"
+      DTS:DTSID="{D873CFB0-044C-4F49-B4A9-A42E693CC361}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
@@ -107,7 +107,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{58282F26-1148-4BAD-BA89-BDBC12384989}"
+      DTS:DTSID="{13A6C108-F1F3-4818-872C-080EC1B79243}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FolderName">
@@ -117,7 +117,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{30CB4523-F4B0-4485-AEE9-6556B2E5A0F6}"
+      DTS:DTSID="{CDC5715D-9C0E-4488-82F7-55FBE4D900AC}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]"
       DTS:IncludeInDebugDump="2345"
@@ -128,7 +128,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{406DD966-1A89-4596-BF02-D9E9132F6CF0}"
+      DTS:DTSID="{9F42131E-B828-4161-BB95-1D5930165916}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowsInserted">
@@ -137,7 +137,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{090B5D52-538E-4075-AA5F-BB2ED8C9B040}"
+      DTS:DTSID="{3771CBD9-7239-4DCB-BE5D-0A65753FD7D4}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]"
       DTS:IncludeInDebugDump="2345"
@@ -152,7 +152,7 @@
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{51BDE6BB-A7B4-4678-AB65-D578759CA466}"
+      DTS:DTSID="{0423EF66-B496-4636-8FDD-0201CD738BB3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -161,7 +161,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}"
+          SQLTask:Connection="{A52DBA53-890D-4988-8964-5180450BA7C1}"
           SQLTask:SqlStatementSource="WITH DeduplicatedStaging AS (&#xA;    SELECT &#xA;        e.EmployeeID,&#xA;        c.ClientID,&#xA;        s.[Date],&#xA;        s.DayOfWeek,&#xA;        LEFT(s.[Description], 20) AS [Description],&#xA;        s.Comments,&#xA;        s.Billable,&#xA;        s.StartTime,&#xA;        s.EndTime,&#xA;        s.TotalHours,&#xA;        ROW_NUMBER() OVER (&#xA;            PARTITION BY &#xA;                e.EmployeeID, &#xA;                c.ClientID, &#xA;                s.Comments, &#xA;                s.StartTime, &#xA;                s.EndTime, &#xA;                s.TotalHours&#xA;            ORDER BY s.[Date] ASC  -- earliest date first&#xA;        ) AS rn&#xA;    FROM &#xA;        Timesheet_Staging s&#xA;        INNER JOIN Employee e ON s.FullName = e.FullName&#xA;        INNER JOIN Client c ON c.ClientName = s.Client&#xA;    WHERE &#xA;        s.[Date] IS NOT NULL&#xA;        AND s.[Description] IS NOT NULL&#xA;        AND s.Billable IS NOT NULL&#xA;        AND s.TotalHours IS NOT NULL&#xA;        AND LEFT(s.[Description], 20) &lt;&gt; 'Public Holiday'  -- exclude 'Public Holiday' descriptions&#xA;)&#xA;INSERT INTO Timesheet (&#xA;    EmployeeID,&#xA;    ClientID,&#xA;    [Date],&#xA;    DayOfWeek,&#xA;    [Description],&#xA;    Comments,&#xA;    Billable,&#xA;    StartTime,&#xA;    EndTime,&#xA;    TotalHours&#xA;)&#xA;SELECT &#xA;    ds.EmployeeID,&#xA;    ds.ClientID,&#xA;    ds.[Date],&#xA;    ds.DayOfWeek,&#xA;    ds.[Description],&#xA;    ds.Comments,&#xA;    ds.Billable,&#xA;    ds.StartTime,&#xA;    ds.EndTime,&#xA;    ds.TotalHours&#xA;FROM DeduplicatedStaging ds&#xA;WHERE &#xA;    ds.rn = 1&#xA;    AND NOT EXISTS (&#xA;        SELECT 1&#xA;        FROM Timesheet t&#xA;        WHERE &#xA;            t.EmployeeID = ds.EmployeeID&#xA;            AND t.ClientID = ds.ClientID&#xA;            AND ISNULL(t.Comments, '') = ISNULL(ds.Comments, '')&#xA;            AND t.StartTime = ds.StartTime&#xA;            AND t.EndTime = ds.EndTime&#xA;            AND t.TotalHours = ds.TotalHours&#xA;    );&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -169,13 +169,13 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{B8D97F64-A68D-4897-9ED9-357340F6FA0A}"
+      DTS:DTSID="{29D0F35A-3A96-49BA-9A8E-9D66C3FA1326}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{F739517F-C91C-4BEF-86B4-120F7158D9D5}"
+        DTS:DTSID="{511FCCE6-7620-420B-8C0B-39E86F40CB0E}"
         DTS:ObjectName="{51C7D3F2-A320-4D22-BD4D-A2A0B1BCAD45}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
@@ -196,7 +196,7 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{7DDEF852-188A-4E96-86BF-C07136D9C8B2}"
+          DTS:DTSID="{DFE71409-D6E5-4A24-825A-0DD41A4E3F13}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -206,7 +206,7 @@
             <DTS:EventHandler
               DTS:refId="Package\Foreach Loop Container\Data Flow Task.EventHandlers[OnError]"
               DTS:CreationName="OnError"
-              DTS:DTSID="{AC6B8111-EFC5-4EF4-B265-9FD8E45755B8}"
+              DTS:DTSID="{775B2B4C-0A7D-4E57-8B1A-50B8B7306FD3}"
               DTS:EventID="0"
               DTS:EventName="OnError"
               DTS:LocaleID="-1">
@@ -214,7 +214,7 @@
                 <DTS:Variable
                   DTS:CreationName=""
                   DTS:Description="The propagate property of the event"
-                  DTS:DTSID="{049299F8-7CE9-4EBB-940F-8F9E844CB27A}"
+                  DTS:DTSID="{AC21848F-AC83-471D-93A4-949161CF2D68}"
                   DTS:IncludeInDebugDump="6789"
                   DTS:Namespace="System"
                   DTS:ObjectName="Propagate">
@@ -227,7 +227,7 @@
                   DTS:refId="Package\Foreach Loop Container\Data Flow Task.EventHandlers[OnError]\Execute SQL Task"
                   DTS:CreationName="Microsoft.ExecuteSQLTask"
                   DTS:Description="Execute SQL Task"
-                  DTS:DTSID="{9CA4D10D-0569-4A24-B352-901587CEBF36}"
+                  DTS:DTSID="{FB1D70ED-9C41-4AEC-82B8-E4A3E63C3EE8}"
                   DTS:ExecutableType="Microsoft.ExecuteSQLTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="Execute SQL Task"
@@ -235,7 +235,7 @@
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
-                      SQLTask:Connection="{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}"
+                      SQLTask:Connection="{A52DBA53-890D-4988-8964-5180450BA7C1}"
                       SQLTask:SqlStatementSource="INSERT INTO ErrorLog (PackageName, TaskName, ErrorDescription, ErrorCode, ErrorTime)&#xA;VALUES (?, ?, ?, ?, GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                       <SQLTask:ParameterBinding
                         SQLTask:ParameterName="0"
@@ -1846,7 +1846,7 @@
           DTS:refId="Package\Foreach Loop Container\Execute SQL Task"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{B9FA70A4-1365-4F64-A468-C83CDEE1B264}"
+          DTS:DTSID="{74C9B229-B67F-4BDB-9EFB-A3DE0A5FFE74}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
@@ -1855,7 +1855,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}"
+              SQLTask:Connection="{A52DBA53-890D-4988-8964-5180450BA7C1}"
               SQLTask:SqlStatementSource="INSERT INTO dbo.AuditLog (PackageName, RowsInserted , FileName , Timestamp)&#xA;VALUES (?, ? , ? , ?);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -1889,7 +1889,7 @@
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
           DTS:Disabled="True"
-          DTS:DTSID="{076BDC8E-ABBE-440C-90CC-BE8E879B126E}"
+          DTS:DTSID="{5B4AD833-6C9B-42D4-B074-677C0418222F}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Files"
@@ -2108,14 +2108,34 @@
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_38b80067822b427792c4543a48f13fd0.Properties.Settings.get_Default():ST_38b80067822b427792c4543a48f13fd0.Properties.Sett" +
+    "ings")]
+
+namespace ST_38b80067822b427792c4543a48f13fd0.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2253,35 +2273,6 @@ namespace ST_38b80067822b427792c4543a48f13fd0
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_38b80067822b427792c4543a48f13fd0.Properties.Settings.get_Default():ST_38b80067822b427792c4543a48f13fd0.Properties.Sett" +
-    "ings")]
-
-namespace ST_38b80067822b427792c4543a48f13fd0.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -2311,6 +2302,15 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2504,7 +2504,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\Foreach Loop Container\Folder Names"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{3ABCADE6-2428-4D69-B841-29D37BEB57E2}"
+          DTS:DTSID="{2BA27B3B-D594-4729-A5D3-6260C73802E8}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Folder Names"
@@ -2724,14 +2724,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_648afff86144452ab8288f396a330912.Properties.Settings.get_Default():ST_648afff86144452ab8288f396a330912.Properties.Sett" +
+    "ings")]
+
+namespace ST_648afff86144452ab8288f396a330912.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2873,35 +2893,6 @@ namespace ST_648afff86144452ab8288f396a330912
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_648afff86144452ab8288f396a330912.Properties.Settings.get_Default():ST_648afff86144452ab8288f396a330912.Properties.Sett" +
-    "ings")]
-
-namespace ST_648afff86144452ab8288f396a330912.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -2931,6 +2922,15 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -3125,7 +3125,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{8941FC93-E817-468F-8CC7-7B8F050CCC34}"
+          DTS:DTSID="{E5EE41CA-EC41-4225-AA9D-70CC841C4720}"
           DTS:From="Package\Foreach Loop Container\Data Flow Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3134,8 +3134,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B974A281-5E7A-4F58-B194-89E23F2747D6}"
-          DTS:ObjectName="{B974A281-5E7A-4F58-B194-89E23F2747D6}"
+          DTS:DTSID="{253A4678-B7F0-46E5-ADB9-91C2E5081D13}"
+          DTS:ObjectName="{253A4678-B7F0-46E5-ADB9-91C2E5081D13}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FilePath" />
       </DTS:ForEachVariableMappings>
@@ -3145,7 +3145,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{E2CD066E-AFEC-41C8-9E92-2D341672CDA6}"
+      DTS:DTSID="{3B677A53-093B-4985-896A-14992454DC51}"
       DTS:From="Package\Foreach Loop Container"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -3155,7 +3155,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{2A3491D3-5211-446C-B69F-470852BD4C35}"
+      DTS:DTSID="{FDABDC8B-9AD3-482D-870D-FA5F40AE13DD}"
       DTS:EventID="0"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -3163,7 +3163,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{F59319E9-BAA5-4BE8-A90E-DBC4D74341C1}"
+          DTS:DTSID="{C6F32E07-2FFF-49DB-8DBB-BE8C10CB5352}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -3176,7 +3176,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4FC1A1EC-CB58-443E-9C01-9119F3B47EDA}"
+          DTS:DTSID="{E853941E-9A62-4FC3-BD22-9698E93EAE70}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
@@ -3184,7 +3184,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{82DB2A0F-C5C1-44C6-827E-F63186F5B3DD}"
+              SQLTask:Connection="{A52DBA53-890D-4988-8964-5180450BA7C1}"
               SQLTask:SqlStatementSource="INSERT INTO ErrorLog (PackageName, TaskName, ErrorDescription, ErrorCode, ErrorTime)&#xA;VALUES (?, ?, ?, ?, GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -3406,7 +3406,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3440,7 +3442,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3468,7 +3472,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3538,7 +3544,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3572,7 +3580,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3594,7 +3604,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

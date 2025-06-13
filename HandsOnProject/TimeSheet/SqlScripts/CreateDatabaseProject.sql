@@ -13,13 +13,13 @@ BEGIN
     --Employee Table
     CREATE TABLE Employee (
         EmployeeID INT PRIMARY KEY IDENTITY(1,1),
-        FullName NVARCHAR(Max) NOT NULL
+        FullName VARCHAR(100) NOT NULL
     );
 
     -- Client Table
     CREATE TABLE Client (
         ClientID INT PRIMARY KEY IDENTITY(1,1),
-        ClientName NVARCHAR(Max) NOT NULL 
+        ClientName NVARCHAR(100) NOT NULL 
     );
 
     -- Updated TimeSheetEntry Table
