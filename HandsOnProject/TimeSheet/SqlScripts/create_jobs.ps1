@@ -25,14 +25,17 @@ BEGIN
         @on_success_action = 1,
         @on_fail_action = 2;
 
+    -- Create schedule to run every 1 minute
     EXEC msdb.dbo.sp_add_schedule
         @schedule_name = N'RunEveryMinute_$($job.Name)',
+        @enabled = 1,
         @freq_type = 4,                 -- Daily
         @freq_interval = 1,             -- Every day
         @active_start_time = 000000,    -- Start at midnight
-        @freq_subday_type = 2,          -- Subday type = minutes
+        @freq_subday_type = 2,          -- Minutes
         @freq_subday_interval = 1;      -- Every 1 minute
 
+    -- Attach the schedule to the job
     EXEC msdb.dbo.sp_attach_schedule
         @job_name = N'$($job.Name)',
         @schedule_name = N'RunEveryMinute_$($job.Name)';
