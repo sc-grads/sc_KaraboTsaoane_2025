@@ -3,7 +3,7 @@ name: Full Timesheet Automation Pipeline
 on:
   workflow_dispatch:
 
-jobs:
+jobs: 
   create-database-and-tables:
     runs-on: [self-hosted, windows]
 
