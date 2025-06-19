@@ -82,7 +82,11 @@ jobs:
         run: |
           echo "Creating SQL Agent jobs..."
           $ErrorActionPreference = "Stop"
+
           .HandsOnProject\Timesheet\SqlScripts\create_jobs.ps1 `
+
+          .\Timesheet\SqlScripts\create_jobs.ps1 `
+
             -SqlServer $env:SQL_SERVER2 `
             -Username $env:SQL_USERNAME `
             -Password $env:SQL_PASSWORD 
