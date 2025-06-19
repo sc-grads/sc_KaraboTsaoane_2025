@@ -1,0 +1,88 @@
+name: Full Timesheet Automation Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-database-and-tables:
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run SQL script to create database and tables
+        env:
+          SQL_SERVER: ${{ secrets.SQL_SERVER }}        # e.g., localhost or .\SQLEXPRESS
+          SQL_USERNAME: ${{ secrets.SQL_USERNAME }}
+          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+        shell: powershell
+        run: |
+          echo "Creating database and tables..."
+          $ErrorActionPreference = "Stop"
+          $sqlFile = "HandsOnProject\Timesheet\SqlScripts\CreateDatabaseProject.sql"
+          if (!(Test-Path $sqlFile)) {
+            Write-Error "SQL script not found at $sqlFile"
+            exit 1
+          }
+          sqlcmd -S $env:SQL_SERVER -U $env:SQL_USERNAME -P $env:SQL_PASSWORD -i $sqlFile -o output.txt
+          type output.txt
+  deploy-ssis-package:
+    needs: create-database-and-tables
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy SSIS Project (.ispac)
+        env:
+          SQL_SERVER2: ${{ secrets.SQL_SERVER2 }}      # Can be same as SQL_SERVER
+        shell: powershell
+        run: |
+          echo "Deploying SSIS project..."
+          $ispacPath = "HandsOnProject\Timesheet\bin\Development\TimeSheet.ispac"
+          Write-Host "Current working directory: $(Get-Location)"
+          Write-Host "Checking ISPAC at path: $ispacPath"
+          if (!(Test-Path $ispacPath)) {
+            Write-Error "ISPAC file not found at $ispacPath"
+            exit 1
+          }
+          $deployArgs = @(
+            "/Silent",
+            "/SourcePath:`"$ispacPath`"",
+            "/DestinationServer:`"$env:SQL_SERVER2`"",
+            "/DestinationPath:""/SSISDB/MyPackageDemos/TimeSheet"""
+          )
+          $process = Start-Process `
+            -FilePath "C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\ISDeploymentWizard.exe" `
+            -ArgumentList $deployArgs `
+            -Wait `
+            -PassThru `
+            -NoNewWindow
+          if ($process.ExitCode -ne 0) {
+            Write-Error "Deployment failed with exit code $($process.ExitCode)"
+            exit $process.ExitCode
+          }
+          echo "SSIS project deployed successfully."
+  create-sql-agent-jobs:
+    needs: deploy-ssis-package
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run PowerShell script to create SQL Agent jobs
+        env:
+          SQL_SERVER2: ${{ secrets.SQL_SERVER2 }}     # Same as used in deployment
+          SQL_USERNAME: ${{ secrets.SQL_USERNAME }}
+          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+        shell: powershell
+        run: |
+          echo "Creating SQL Agent jobs..."
+          $ErrorActionPreference = "Stop"
+          .HandsOnProject\Timesheet\SqlScripts\create_jobs.ps1 `
+            -SqlServer $env:SQL_SERVER2 `
+            -Username $env:SQL_USERNAME `
+            -Password $env:SQL_PASSWORD 
