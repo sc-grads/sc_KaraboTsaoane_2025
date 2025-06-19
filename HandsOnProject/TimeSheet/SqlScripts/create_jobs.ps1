@@ -16,7 +16,7 @@ foreach ($job in $jobs) {
 IF NOT EXISTS (SELECT 1 FROM msdb.dbo.sysjobs WHERE name = N'$($job.Name)')
 BEGIN
     EXEC msdb.dbo.sp_add_job @job_name = N'$($job.Name)';
-    
+
     EXEC msdb.dbo.sp_add_jobstep
         @job_name = N'$($job.Name)',
         @step_name = N'Run SSIS Package',
@@ -26,14 +26,16 @@ BEGIN
         @on_fail_action = 2;
 
     EXEC msdb.dbo.sp_add_schedule
-        @schedule_name = N'RunEveryDayMidnight_$($job.Name)',
-        @freq_type = 4,
-        @freq_interval = 1,
-        @active_start_time = 000000;
+        @schedule_name = N'RunEveryMinute_$($job.Name)',
+        @freq_type = 4,                 -- Daily
+        @freq_interval = 1,             -- Every day
+        @active_start_time = 000000,    -- Start at midnight
+        @freq_subday_type = 2,          -- Subday type = minutes
+        @freq_subday_interval = 1;      -- Every 1 minute
 
     EXEC msdb.dbo.sp_attach_schedule
         @job_name = N'$($job.Name)',
-        @schedule_name = N'RunEveryDayMidnight_$($job.Name)';
+        @schedule_name = N'RunEveryMinute_$($job.Name)';
 
     EXEC msdb.dbo.sp_add_jobserver @job_name = N'$($job.Name)';
 END
