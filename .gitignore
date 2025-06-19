@@ -39,12 +39,12 @@ htmlcov/
 *.cache
 *.dbmdl
 *.deploymanifest
-*.ispac
+#*.ispac
 *.log
 *.suo
 
 # SSIS bin and obj folders (build artifacts)
-**/bin/
+#**/bin/
 **/obj/
 
 # SQL Server Data Tools (SSDT) folders
@@ -59,7 +59,7 @@ htmlcov/
 
 
 # Visual Studio build output
-bin/
+#bin/
 obj/
 
 # NuGet Packages
@@ -74,7 +74,7 @@ packages/
 # Build artifacts
 [Dd]ebug/
 [Rr]elease/
-x64/
+#x64/
 build/
 bld/
 
