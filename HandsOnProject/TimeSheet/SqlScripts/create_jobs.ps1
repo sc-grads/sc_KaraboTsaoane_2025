@@ -5,10 +5,10 @@ param (
 )
 
 $jobs = @(
-  @{ Name = "Timesheet"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractClientNames2.dtsx" },
+  @{ Name = "Client"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractClientNames2.dtsx" },
   @{ Name = "Employee";  PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractEmployeeNames2.dtsx" },
-  @{ Name = "Client";    PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractLeave2.dtsx" },
-  @{ Name = "Leave";     PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractTimesheet2.dtsx" }
+  @{ Name = "Leave";    PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractLeave2.dtsx" },
+  @{ Name = "Timesheet";     PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractTimesheet2.dtsx" }
 )
 
 foreach ($job in $jobs) {
