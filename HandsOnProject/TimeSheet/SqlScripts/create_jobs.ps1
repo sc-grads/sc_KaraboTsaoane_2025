@@ -6,9 +6,9 @@ param (
 
 $jobs = @(
   @{ Name = "Client"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractClientNames2.dtsx" },
-  @{ Name = "Employee";  PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractEmployeeNames2.dtsx" },
-  @{ Name = "Leave";    PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractLeave2.dtsx" },
-  @{ Name = "Timesheet";     PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractTimesheet2.dtsx" }
+  @{ Name = "Employee"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractEmployeeNames2.dtsx" },
+  @{ Name = "Leave"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractLeave2.dtsx" },
+  @{ Name = "Timesheet"; PackagePath = "\SSISDB\MyPackageDemos\TimeSheet\ExtractTimesheet2.dtsx" }
 )
 
 foreach ($job in $jobs) {
@@ -26,14 +26,16 @@ BEGIN
         @on_fail_action = 2;
 
     EXEC msdb.dbo.sp_add_schedule
-        @schedule_name = N'RunEveryDayMidnight_$($job.Name)',
+        @schedule_name = N'RunEveryMinuteDaily_$($job.Name)',
         @freq_type = 4,
         @freq_interval = 1,
+        @freq_subday_type = 2,
+        @freq_subday_interval = 1,
         @active_start_time = 000000;
 
     EXEC msdb.dbo.sp_attach_schedule
         @job_name = N'$($job.Name)',
-        @schedule_name = N'RunEveryDayMidnight_$($job.Name)';
+        @schedule_name = N'RunEveryMinuteDaily_$($job.Name)';
 
     EXEC msdb.dbo.sp_add_jobserver @job_name = N'$($job.Name)';
 END
