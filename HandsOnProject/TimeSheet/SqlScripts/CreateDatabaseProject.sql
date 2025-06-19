@@ -59,6 +59,9 @@ CREATE TABLE dbo.AuditLog (
     RowsInserted INT,
     Timestamp NVARCHAR(30)
 );
+ALTER TABLE dbo.AuditLog
+ADD 
+    EmployeeName VARCHAR(100);
 
 
 	--Staging table for leave
