@@ -37,14 +37,14 @@ BEGIN
     EXEC msdb.dbo.sp_delete_schedule @schedule_name = N'$scheduleName';
 END;
 
--- Create a new schedule to run every minute from 00:01 to 23:59
+-- Create a new schedule to run every minute starting immediately
 EXEC msdb.dbo.sp_add_schedule
     @schedule_name = N'$scheduleName',
     @freq_type = 4,                -- Daily
     @freq_interval = 1,            -- Every day
-    @freq_subday_type = 1,         -- Every X minutes
+    @freq_subday_type = 4,         -- Every X minutes
     @freq_subday_interval = 1,     -- Every 1 minute
-    @active_start_time = 000100,   -- Start at 00:01 to avoid 00:00 issue
+    @active_start_time = 084500,   -- Start at 08:45 AM SAST (current time or earlier today)
     @active_end_time = 235959;
 
 -- Attach the schedule to the job
