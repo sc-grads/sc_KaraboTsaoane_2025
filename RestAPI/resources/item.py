@@ -4,7 +4,7 @@ from flask.views import MethodView
 from flask_smorest import Blueprint , abort #Blueprint divides Api into multiple segments
 from sqlalchemy.exc import SQLAlchemyError
 
-from db import items
+#from db import items
 from models import ItemModel
 from schemas import ItemSchema , ItemUpdatedSchema
 

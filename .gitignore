@@ -123,6 +123,7 @@ node_modules/
 # Ignore Python virtual environments (if applicable)
 venv/
 __pycache__/
+data.db
 
 # Ignore any custom build directories or files
 [Oo]ut/
