@@ -1,51 +1,42 @@
-from flask import Flask , request
-app = Flask(__name__)
+
+import os
+import secrets
+from flask import Flask 
+from flask_smorest import Api
+from flask_jwt_extended import JWTManager
+from db import db
+import models
+
+from resources.item import blp as ItemBlueprint
+from resources.store import blp as StoreBlueprint
+
+def create_app(db_url=None):
+
+    app = Flask(__name__)
+
+    app.config["PROPAGATE_EXCEPTIONS"]= True
+    app.config["API_TITLE"] ="Stores REST API"
+    app.config["API_VERSION"] ="v1"
+    app.config["OPENAPI_VERSION"] ="3.0.3"
+    app.config["OPENAPI_URL_PREFIX"] ="/"
+    app.config["OPENAPI_SWAGGER_UI_PATH"] ="/swagger-ui"
+    app.config["OPENAPI_SWAGGER_UI_URL"] ="https://cdn.jsdelivr.net/npm/swagger-ui-dist"
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL" , "sqlite:///data.db")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["PROPAGATE_EXCEPTIONS"] = True
+    db.init_app(app)
+
+    api = Api(app)
+    
+    app.config["JWT_SECRET_KEY"] = "jose"
+    
+    jwt =JWTManager(app)
+
+    @app.before_first_request
+    def create_tables():
+        db.create_all()
 
 
-stores = [
-    {
-        "name": "My Store",
-        "items": [
-            {
-                "name": "Chair",
-                "price": 15.99
-            }
-        ]
-    }
-]
+    api.register_blueprint(ItemBlueprint)
+    api.register_blueprint(StoreBlueprint)
 
-@app.get("/store")   #The endpoint(/store) where to access http://127.0.0.1:5000/store
-def get_stores():
-    return {"stores": stores}
-
-@app.post("/store") 
-def create_store():
-   request_data = request.get_json() # we are getting data from Insomnia for the post , request comes from flask so has to be added at the top
-   new_store = {"name": request_data["name"], "items":[]} # name is taken from JSON file and the list is empty
-   stores.append(new_store)
-   return new_store , 201 #201 is the status code(Means data is accepted and will be created)
-
-@app.post("/store/<string:name>/item") #Checks the name of the store from URL and navigates to that in JSON file to the items http://127.0.0.1:5000/store/My Store/item
-def create_item(name):
-     request_data = request.get_json() 
-     for store in stores:
-         if store["name"] == name:  #If the name exists then does the code below
-             new_item ={"name": request_data["name"] , "price":request_data["price"]}#In this label store data from Json where label is []
-             store["items"].append(new_item)
-             return new_item , 201
-     return {"message":"Store not found"} , 404 #If name of store in the URL is not found
-         
-
-@app.get("/store/<string:name>") 
-def get_store(name):
-    for store in stores:
-         if store["name"] == name: 
-             return store
-    return {"message":"Store not found"} , 404
-
-@app.get("/store/<string:name>/item") 
-def get_item_in_store(name):
-    for store in stores:
-         if store["name"] == name: 
-             return {"item": store["items"]}
-    return {"message":"Store not found"} , 404
