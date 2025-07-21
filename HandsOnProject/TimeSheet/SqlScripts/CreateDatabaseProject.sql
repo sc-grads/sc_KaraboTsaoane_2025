@@ -38,6 +38,9 @@ BEGIN
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
 	 FOREIGN KEY (ClientID) REFERENCES Client(ClientID)
 );
+ALTER TABLE dbo.Timesheet
+ADD 
+    ClientProjectName NVARCHAR(200);
 
     -- Updated Leave Table
     CREATE TABLE Leave (
