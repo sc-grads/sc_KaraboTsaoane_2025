@@ -1,5 +1,3 @@
-CREATE TABLE photos (
-    id INT PRIMARY KEY IDENTITY(1,1),
-    url VARCHAR(200),
-    user_id INT
-);
+select contents , username 
+FROM COMMENTS 
+JOIN users on users.id = COMMENTS.user_id;

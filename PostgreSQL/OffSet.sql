@@ -1,0 +1,4 @@
+SELECT *
+FROM users
+ORDER BY id
+OFFSET 40 ROWS;
