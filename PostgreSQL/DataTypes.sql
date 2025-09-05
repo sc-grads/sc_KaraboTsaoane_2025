@@ -1,0 +1,1 @@
+select ('1 D 20 H 30 M 45 S'::Interval) - ('1 D'::Interval) ;

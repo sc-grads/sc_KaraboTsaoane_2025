@@ -1,0 +1,1 @@
+SELECT LEAST(20 , 104, 30)
