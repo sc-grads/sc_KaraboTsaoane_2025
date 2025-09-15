@@ -127,3 +127,5 @@ data.db
 
 # Ignore any custom build directories or files
 [Oo]ut/
+
+node_modules/
