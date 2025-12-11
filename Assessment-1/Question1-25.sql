@@ -41,14 +41,14 @@ Order By[CustomerID] Desc;
 
 
 --Question 9
-Select [ProductID] , Sum([Quantity]) AS total_quantity From [Production].[ProductInventory] 
+Select [ProductID] , Sum([Quantity]) As total_quantity From [Production].[ProductInventory] 
 Where [Shelf] = 'A' or [Shelf] ='C' or [Shelf] = 'H'
 Group by [ProductID]
 Having Sum([Quantity]) > 500 ;
 
 
 --Question 10
-Select Sum([Quantity])*10 AS total_quantity From [Production].[ProductInventory]
+Select Sum([Quantity])* 10 As total_quantity From [Production].[ProductInventory]
 Group by [LocationID];
 
 
@@ -126,8 +126,8 @@ Join [Person].[BusinessEntityAddress] As bea
   On p.[BusinessEntityID] = bea.[BusinessEntityID]
 Join [Person].[Address]  As a
    On bea.[AddressID] = a.[AddressID]
-Where sp.[TerritoryID] Is not null   -- salesperson "belongs to a territory"
-  And sp.[SalesYTD] <> 0              -- SalesYTD is not zero
+Where sp.[TerritoryID] Is not null   
+  And sp.[SalesYTD] <> 0              
   And a.[PostalCode] Is not null 
 Order by a.[PostalCode] Asc, RowNum Asc;
 
@@ -143,13 +143,9 @@ Order by BusinessEntityContact Desc;
 
 --Question 23
 Select Convert(date, eph.[RateChangeDate])  As RateChangeDate,
-    Ltrim(
-        Rtrim(
-            p.[FirstName]  + ' ' +
-            Isnull(p.[MiddleName]+ ' ', '') +
-            p.[LastName]
-        )
-    ) As NameInFull,
+     p.[FirstName]  + ' ' +
+     Isnull(p.[MiddleName]+ ' ', '') +
+     p.[LastName] As NameInFull,
     (eph.[Rate] * 40)  As WeeklySalary
 From [HumanResources].[EmployeePayHistory]eph
 Join [HumanResources].[Employee] e
@@ -171,13 +167,10 @@ Select
         )  As rn
 From [HumanResources].[EmployeePayHistory] eph
 )
-Select
-    Convert(date, lr.[RateChangeDate])  As RateChangeDate,
-    Ltrim(Rtrim(
-        p.[FirstName] + ' ' + 
-        Isnull(p.[MiddleName] + ' ', '') + 
-        p.[LastName]
-    ))  As NameInFull,
+Select Convert(date, lr.[RateChangeDate])  As RateChangeDate,
+     p.[FirstName]  + ' ' +
+     Isnull(p.[MiddleName]+ ' ', '') +
+     p.[LastName] As NameInFull,
     (lr.[Rate] * 40)  As WeeklySalary
 From LatestRate lr
 Join [HumanResources].[Employee] e
@@ -200,3 +193,9 @@ Select
     Min(sod.[OrderQty])Over  (Partition by sod.[SalesOrderID])  As MinOrderQty
 From [Sales].[SalesOrderDetail] sod
 Where sod.[SalesOrderID] In (43659, 43664);
+
+Selecting BusinessEntityID, LastName, and FirstName from multiple tables based on specified conditionsSELECT pp.BusinessEntityID, LastName, FirstName    
+-- Retrieving BusinessEntityID, LastName, and FirstName columnsFROM Person.BusinessEntityContact AS pb      
+-- Joining Person.BusinessEntityContact with Person.ContactType based on ContactTypeIDINNER JOIN Person.ContactType AS pc            
+ON pc.ContactTypeID = pb.ContactTypeID         -- Joining Person.BusinessEntityContact with Person.Person based on BusinessEntityIDINNER JOIN Person.Person AS pp             ON pp.BusinessEntityID = pb.PersonID     -- Filtering the results to include only records where the ContactType Name is 'Purchasing Manager'WHERE pc.Name = 'Purchasing Manager'-- Sorting the results by LastName and FirstNameORDER BY LastName, FirstName;
+ 
